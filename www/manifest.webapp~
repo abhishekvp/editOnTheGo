@@ -1,8 +1,8 @@
 {
   "version": "0.1",
-  "name": "Title",
-  "description": "Open Web App to edit Rich Text Documents",
-  "launch_path": "/richtextdoc_edit_OWA/",
+  "name": "My App",
+  "description": "Your new awesome Open Web App",
+  "launch_path": "/",
   "icons": {
     "16": "/img/icons/mortar-16.png",
     "48": "/img/icons/mortar-48.png",
