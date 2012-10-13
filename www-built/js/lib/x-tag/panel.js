@@ -1,1 +1,0 @@
-(function(){xtag.register("x-panel",{mixins:["request"],onCreate:function(){this.dataready=this.dataready||function(e){this.innerHTML=e.responseText}}})})()
