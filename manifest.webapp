@@ -1,0 +1,15 @@
+{
+  "name": "editOnTheGo<editOTG>",
+  "description": "An Open Web Application to edit Rich Text Documents",
+  "launch_path": "/",
+ "icons": {
+  "16": "/img/mortar-16.png",
+  "48": "/img/mortar-48.png",
+  "128": "/img/mortar-128.png"
+},
+  "developer": {
+    "name": "Abhishek Potnis, Amod Narvekar, Pratik Patil",
+    "url": "https://github.com/abhishekp91/richtextdoc_edit_OWA"
+  },
+  "default_locale": "en"
+}
