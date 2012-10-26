@@ -1,7 +1,7 @@
 {
   "name": "editOnTheGo<editOTG>",
   "description": "An Open Web Application to edit Rich Text Documents",
-  "launch_path": "/",
+  "launch_path": "/richtextdoc_edit_OWA",
  "icons": {
   "16": "/img/mortar-16.png",
   "48": "/img/mortar-48.png",
