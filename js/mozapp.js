@@ -1,45 +1,24 @@
 window.onload=function(){
-
-   if (!mozApps.isRunning()) {
-        mozApps.install();
-    }
-    
+var request = navigator.mozApps.getSelf();
+request.onsuccess = function() {
+  if (request.result) {
+    // we're installed
+  } else {
+    var request1 = navigator.mozApps.install("https://abhishekp91.github.com/richtextdoc_edit_OWA/manifest.webapp");
+    request1.onsuccess = function() {
+  alert("App installed successfully !");
+}
+request1.onerror = function() {
+ alert(this.error.name);
+  // whoops - this.error.name has details
+}
+  }
+}
+request.onerror = function() {
+  alert('Error checking installation status: ' + this.error.message);
+}
+   
 };
 
 
 
-var mozApps = (function() {
-    var manLink = document.querySelector('link[rel="app-manifest"]'),
-        manifestURL = manLink.getAttribute('href');
-
-    var self = false;
-
-    var selfReq = navigator.mozApps.getSelf();
-    selfReq.onsuccess = function() {
-        self = selfReq.result;
-    };
-
-    function isRunning() {
-        return !!self;
-    }
-    function install(success, error) {
-        var r = navigator.mozApps.install(manifestURL);
-        r.onsuccess = success;
-        r.onerror = error;
-        r.addEventListener('error', function() {
-            alert('Installation Failed with Error: ' + this.error.name);
-        });
-        return r;
-    }
-    function uninstall() {
-        if (self)
-            return self.uninstall();
-    }
-
-    return {
-        isRunning: isRunning,
-        install: install,
-        uninstall: uninstall,
-        manifest: manifestURL
-    };
-})();
