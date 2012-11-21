@@ -145,7 +145,7 @@ html5rocks.indexedDB.open = function() {
         var todo = document.getElementsByTagName('section')[0].innerHTML;
         html5rocks.indexedDB.addTodo(fn, todo);
         todo = "";
-		fn = "";
+		document.getElementById('todo').value = "";
       }
       
       function init() {
