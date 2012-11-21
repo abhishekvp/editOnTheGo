@@ -5,6 +5,7 @@
     <link rel="app-manifest" href="http://abhishekp91.github.com/richtextdoc_edit_OWA/manifest.webapp"/>
   <title> OWA - contentEditable </title>
   <script type="text/javascript" src="js/mozapp.js"></script>
+  <script type="text/javascript" src="js/iDb.js"></script>
   <script type="text/javascript">//<![CDATA[
     var
       gActiveEditor = null, // active editing host
@@ -221,7 +222,11 @@
 
   <footer>
 
-    Open Web App to edit Rich Text Documents !!! 
+   
   </footer>
+  
+    <ul id="todoItems"></ul>
+    <input type="text" id="todo" name="todo" placeholder="Please Enter File Name" style="width: 200px;" />
+    <input type="submit" value="Save" onclick="addTodo(); return false;"/>
 </body>
 </html>
