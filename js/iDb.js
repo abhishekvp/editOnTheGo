@@ -68,7 +68,7 @@ function saveDocument(docName, docContent) {
   var data = {
     "filename": docName,
     "text": docContent,
-    "timeStamp": Date().now()
+    "timeStamp": Date.now()
   };
   var request = store.put(data);
   request.onsuccess = function onSuccess_Save(e) {
