@@ -15,6 +15,7 @@ function init() {
  *Calls |displayDocList()| to display the list of documents in the database.
  */
 function initIndexedDB() {
+  alert("test");
   var request = indexedDB.open(dbName);
 
   request.onerror = function (event) {
