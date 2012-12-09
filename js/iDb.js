@@ -48,15 +48,14 @@ function initIndexedDB() {
  *		
  */
 function saveDocument(docName, docContent) {
-  trans = db.transaction(["doc"], "readwrite");
-  alert("test");
-  store = trans.objectStore("doc");
+  var trans = db.transaction(["doc"], "readwrite");
+  var store = trans.objectStore("doc");
   var data = {
     "filename": docName,
     "text": docContent,
     "timeStamp": new Date().getTime()
   };
-  request = store.put(data);
+  var request = store.put(data);
   request.onsuccess = function (e) {
     displayDocList();
   };
