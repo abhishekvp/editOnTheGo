@@ -27,7 +27,7 @@ function init() {
  *Calls |displayDocList()| to display the list of documents in the database.
  */
 function initIndexedDB() {
-  var request = window.indexedDB.open(dbName);
+  var request = window.indexedDB.open(DB_NAME);
 
   request.onerror = function onError_Init(event) {
     alert("Error Opening/Creating Database");
