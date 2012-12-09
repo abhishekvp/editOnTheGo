@@ -9,7 +9,7 @@ editor.indexedDB = {};
 editor.indexedDB.db = null;
 editor.indexedDB.open = function () {
   var v = 1; // used to deal with versions
-  var request = indexedDB.open("documents", v); 
+  var request = indexedDB.open("documentsDB", v); 
   request.onsuccess = function (e) {
     editor.indexedDB.db = e.target.result;
     var db = editor.indexedDB.db;
@@ -24,11 +24,11 @@ editor.indexedDB.open = function () {
       // onsuccess is the only place we can create Object Stores
       setVrequest.onerror = editor.indexedDB.onerror;
       setVrequest.onsuccess = function (e) {
-        if (db.objectStoreNames.contains("todo")) {
-          db.deleteObjectStore("todo");
+        if (db.objectStoreNames.contains("docStore")) {
+          db.deleteObjectStore("docStore");
         }
 
-        var store = db.createObjectStore("todo", {
+        var store = db.createObjectStore("docStore", {
           keyPath: "timeStamp"
         });
 
@@ -44,8 +44,8 @@ editor.indexedDB.open = function () {
 
 editor.indexedDB.saveDoc = function saveDocument(docName, docContent) {
   var db = editor.indexedDB.db;
-  var trans = db.transaction(["todo"], "readwrite");
-  var store = trans.objectStore("todo");
+  var trans = db.transaction(["docStore"], "readwrite");
+  var store = trans.objectStore("docStore");
 
   var data = {
     "filename": docName,
@@ -66,8 +66,8 @@ editor.indexedDB.saveDoc = function saveDocument(docName, docContent) {
 
 editor.indexedDB.deleteTodo = function (id) {
   var db = editor.indexedDB.db;
-  var trans = db.transaction(["todo"], "readwrite");
-  var store = trans.objectStore("todo");
+  var trans = db.transaction(["docStore"], "readwrite");
+  var store = trans.objectStore("docStore");
 
   var request = store.delete(id);
 
@@ -85,8 +85,8 @@ editor.indexedDB.getAllTodoItems = function () {
   todos.innerHTML = "";
 
   var db = editor.indexedDB.db;
-  var trans = db.transaction(["todo"], "readwrite");
-  var store = trans.objectStore("todo");
+  var trans = db.transaction(["docStore"], "readwrite");
+  var store = trans.objectStore("docStore");
 
   // Get everything in the store;
   var cursorRequest = store.openCursor();
