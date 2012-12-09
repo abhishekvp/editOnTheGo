@@ -70,9 +70,9 @@ function saveDocument(docName, docContent) {
  *		timeStamp of the document that needs to be deleted 
  */
 function deleteDoc(id) {
-  trans = db.transaction(["doc"], "readwrite");
-  store = trans.objectStore("doc");
-  request = store.delete(id);
+  var trans = db.transaction(["doc"], "readwrite");
+  var store = trans.objectStore("doc");
+  var request = store.delete(id);
   request.onsuccess = function (e) {
     document.getElementsByTagName('section')[0].innerHTML = "";
     displayDocList();
@@ -137,7 +137,6 @@ function renderTodo(row) {
 function saveDoc() {
   var docName = document.getElementById('docName').value;
   var docContent = document.getElementsByTagName('section')[0].innerHTML;
-  alert("test");
   saveDocument(docName, docContent);
   document.getElementById('docName').value = "";
 };
