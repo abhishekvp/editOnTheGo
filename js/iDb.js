@@ -24,11 +24,11 @@ editor.indexedDB.open = function () {
       // onsuccess is the only place we can create Object Stores
       setVrequest.onerror = editor.indexedDB.onerror;
       setVrequest.onsuccess = function (e) {
-        if (db.objectStoreNames.contains("doc")) {
-          db.deleteObjectStore("doc");
+        if (db.objectStoreNames.contains("todo")) {
+          db.deleteObjectStore("todo");
         }
 
-        var store = db.createObjectStore("doc", {
+        var store = db.createObjectStore("todo", {
           keyPath: "timeStamp"
         });
 
@@ -44,8 +44,8 @@ editor.indexedDB.open = function () {
 
 editor.indexedDB.saveDoc = function saveDocument(docName, docContent) {
   var db = editor.indexedDB.db;
-  var trans = db.transaction(["doc"], "readwrite");
-  var store = trans.objectStore("doc");
+  var trans = db.transaction(["todo"], "readwrite");
+  var store = trans.objectStore("todo");
 
   var data = {
     "filename": docName,
@@ -66,8 +66,8 @@ editor.indexedDB.saveDoc = function saveDocument(docName, docContent) {
 
 editor.indexedDB.deleteTodo = function (id) {
   var db = editor.indexedDB.db;
-  var trans = db.transaction(["doc"], "readwrite");
-  var store = trans.objectStore("doc");
+  var trans = db.transaction(["todo"], "readwrite");
+  var store = trans.objectStore("todo");
 
   var request = store.delete(id);
 
@@ -85,8 +85,8 @@ editor.indexedDB.getAllTodoItems = function () {
   todos.innerHTML = "";
 
   var db = editor.indexedDB.db;
-  var trans = db.transaction(["doc"], "readwrite");
-  var store = trans.objectStore("doc");
+  var trans = db.transaction(["todo"], "readwrite");
+  var store = trans.objectStore("todo");
 
   // Get everything in the store;
   var cursorRequest = store.openCursor();
