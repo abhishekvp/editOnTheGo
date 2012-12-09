@@ -1,6 +1,14 @@
 /**
  * iDb.js: IndexedDB has been used for storage, retrieval and deletion of Documents from database.
  * 
+ * Database Details:
+ * 
+ * Database :  documents
+ * ObjectStore : doc
+ * 
+ * Each entry is an object with fields timeStamp (number, which serves as key), filename (string, the document name), 
+ * text (string, the contents of the document, generally in html).
+ * 
  * Structure of Database Used:
  *		      Key Path : timeStamp
  *		      Field (text) : Document Name
@@ -60,7 +68,7 @@ function saveDocument(docName, docContent) {
   var data = {
     "filename": docName,
     "text": docContent,
-    "timeStamp": new Date().getTime()
+    "timeStamp": new Date().now()
   };
   var request = store.put(data);
   request.onsuccess = function onSuccess_Save(e) {
