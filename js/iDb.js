@@ -10,7 +10,7 @@ html5rocks.indexedDB = {};
 html5rocks.indexedDB.db = null;
 html5rocks.indexedDB.open = function() {
   var v = 1;
-  var request = indexedDB.open("todos", v);
+  var request = indexedDB.open("documents", v);
 
   //Firefox code for db init
   request.onupgradeneeded = function (e) {
