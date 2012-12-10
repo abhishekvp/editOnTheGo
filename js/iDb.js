@@ -89,7 +89,6 @@ function deleteDoc(id) {
   var store = trans.objectStore("doc");
   var request = store.delete(id);
   request.onsuccess = function onSuccess_Del(e) {
-    document.getElementsByTagName('section')[0].innerHTML = "";
     displayDocList();
   };
 
@@ -112,9 +111,8 @@ function displayDocList() {
   cursorRequest.onsuccess = function onSuccess_Cursor(e) {
     var result = e.target.result;
     if ( !! result == false) return;
-    renderTodo(result.value);
-    result.
-    continue ();
+    renderDocNames(result.value);
+    result.continue ();
   };
 
   cursorRequest.onerror = function onError_Cursor(e) {
@@ -124,8 +122,10 @@ function displayDocList() {
 
 /**
  *Renders the Document list on the Web page.
+ *  @param	row
+ *			    It is a tuple containing the atrributes Document Name, Time Stamp and Document Contents.
  */
-function renderTodo(row) {
+function renderDocNames(row) {
   var listElement = document.getElementById("docList");
   var li = document.createElement("li");
   var a = document.createElement("a");
