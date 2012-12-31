@@ -35,17 +35,15 @@
         buttons = document.querySelectorAll("*[data-command]"),
         editors = document.querySelectorAll("*[contenteditable]");
 		
-      <!--for (i = 0; i < buttons.length; i++) {
+      for (i = 0; i < buttons.length; i++) {
         buttons[i].onclick  = function() { ExecCommand(this); };		
         buttons[i].onchange = function() { ExecCommand(this); };		
-      -->
+      
       for (i = 0; i < editors.length; i++)
         editors[i].onfocus = function() { gActiveEditor = this; };
       gCommandDump = document.querySelector("#execCommand");
       ExecCommand(document.querySelector("*[data-command=styleWithCSS]"));
     }, false);
-	
-
   //]]></script>
   <style type="text/css">
     html {
@@ -214,21 +212,13 @@
         |
         <input type="button" value=" " data-command="insertOrderedList" />
         <input type="button" value=" " data-command="insertUnorderedList" />
-      </dd>
-	  	  
+      </dd>	  	  
     </dl>
-    <!--<pre id="execCommand">document.execCommand('styleWithCSS', false, true);</pre>-->
-		  
-
   </form>
   
 	<input type="file" id="files" name="file" />
-	<!--<span class="readBytesButtons">
-	<button>Open File</button>
-	</span>-->
 	<input type="button" value="OPEN" onClick="readBlob()"/>
-	
-	
+		
   <section contenteditable="true" id="content" width:1000px>
     <h2> Go ahead, edit away! </h2>
     <p> Here's a typical paragraph element </p>
@@ -237,12 +227,6 @@
       <li> with only      </li>
       <li> three items   </li>
     </ol>
-
   </section>
-
-  <footer>
-
-
-  </footer>
 </body>
 </html>
