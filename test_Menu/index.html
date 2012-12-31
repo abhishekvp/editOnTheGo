@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script>
+function save() {
+var fname=prompt("Enter File Name","");
+//call method to save file to indexedDB
+alert("File "+fname+" saved Successfully !");
+}
+</script>
+</head>
+
+<body>
+<ul id="navigationMenu">
+    <li>
+	    <a class="doc" href="#">
+            <span><input type="button" value="  New "/>&nbsp;<input type="button" value="  Save "/>&nbsp;<input type="button" value="  Save As " onclick="save();"/></span>
+        </a>
+    </li>
+    
+    <li>
+    	<a class="edit" href="#">
+            <span><input type="button" value="  Undo "/>&nbsp;<input type="button" value="  Redo "/>&nbsp;<input type="button" value="  Cut "/><input type="button" value="  Copy "/>&nbsp;<input type="button" value="  Paste "/></span>
+		</a>
+    </li>
+    
+    <li>
+	     <a class="format_inline" href="#">
+            <span>Formatting Buttons and Drop Down Menu Here<br>(Font, Font Size, B, I, U, Strike, Sub and Super Scripts)</span>
+         </a>
+    </li>
+    
+    <li>
+    	<a class="format_block" href="#">
+            <span>Other Formatting Buttons Here<br>(Indentations and Bullets)</span>
+        </a>
+    </li>
+    
+    <li>
+    	<a class="rsvd" href="#">
+            <span>Reserved<br>(If not required, we will remove it)</span>
+        </a>
+    </li>
+</ul>  
+</body>
+
+</html>
+

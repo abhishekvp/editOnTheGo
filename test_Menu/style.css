@@ -1,0 +1,106 @@
+body{
+	font-size:14px;
+	color:#666;
+	background:#111 no-repeat;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#navigationMenu li{
+	list-style:none;
+	height:39px;
+	padding:2px;
+	width:40px;
+}
+
+#navigationMenu span{
+	width:0;
+	left:38px;
+	padding:0;
+	position:absolute;
+	overflow:hidden;
+
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:0.6px;
+	white-space:nowrap;
+	line-height:39px;
+	
+	/* CSS3 Transition: */
+	-webkit-transition: 0.25s;
+}
+
+#navigationMenu a{
+	background:url('img/navigation.jpg') no-repeat;
+
+	height:39px;
+	width:38px;
+	display:block;
+	position:relative;
+}
+
+/* General hover styles */
+
+#navigationMenu a:hover span{ width:auto; padding:0 20px;overflow:visible; }
+#navigationMenu a:hover{
+	text-decoration:none;
+	
+	/* CSS outer glow with the box-shadow property */
+	-moz-box-shadow:0 0 5px #9ddff5;
+	-webkit-box-shadow:0 0 5px #9ddff5;
+	box-shadow:0 0 5px #9ddff5;
+}
+
+/* Document Section */
+
+#navigationMenu .doc {	background-position:0 0;}
+#navigationMenu .doc:hover {	background-position:0 -39px;}
+#navigationMenu .doc span{
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+}
+
+/* Editing Section */
+
+#navigationMenu .edit { background-position:-38px 0;}
+#navigationMenu .edit:hover { background-position:-38px -39px;}
+#navigationMenu .edit span{
+	background-color:#1e8bb4;
+	color:#223a44;
+	text-shadow:1px 1px 0 #44a8d0;
+}
+
+/* Inline Formatting Section */
+
+#navigationMenu .format_inline { background-position:-76px 0;}
+#navigationMenu .format_inline:hover { background-position:-76px -39px;}
+#navigationMenu .format_inline span{
+	background-color:#c86c1f;
+	color:#5a3517;
+	text-shadow:1px 1px 0 #d28344;
+}
+
+/* Block Formatting Section */
+
+#navigationMenu .format_block { background-position:-114px 0;}
+#navigationMenu .format_block:hover{ background-position:-114px -39px;}
+#navigationMenu .format_block span{
+	background-color:#d0a525;
+	color:#604e18;
+	text-shadow:1px 1px 0 #d8b54b;
+}
+
+/* Reserved Section */
+
+#navigationMenu .rsvd { background-position:-152px 0;}
+#navigationMenu .rsvd:hover { background-position:-152px -39px;}
+#navigationMenu .rsvd span{
+	background-color:#af1e83;
+	color:#460f35;
+	text-shadow:1px 1px 0 #d244a6;
+}
+
+
+
+
