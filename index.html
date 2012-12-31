@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
     <link rel="app-manifest" href="http://abhishekp91.github.com/richtextdoc_edit_OWA/manifest.webapp"/>
+	<script type="text/javascript" src="js/fileopen.js"></script>
   <title> OWA - contentEditable </title>
   <script type="text/javascript">//<![CDATA[
     var
@@ -33,15 +34,18 @@
       var i,
         buttons = document.querySelectorAll("*[data-command]"),
         editors = document.querySelectorAll("*[contenteditable]");
-      for (i = 0; i < buttons.length; i++) {
-        buttons[i].onclick  = function() { ExecCommand(this); };
-        buttons[i].onchange = function() { ExecCommand(this); };
-      }
+		
+      <!--for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick  = function() { ExecCommand(this); };		
+        buttons[i].onchange = function() { ExecCommand(this); };		
+      -->
       for (i = 0; i < editors.length; i++)
         editors[i].onfocus = function() { gActiveEditor = this; };
       gCommandDump = document.querySelector("#execCommand");
       ExecCommand(document.querySelector("*[data-command=styleWithCSS]"));
     }, false);
+	
+
   //]]></script>
   <style type="text/css">
     html {
@@ -69,7 +73,9 @@
       border: 1px solid #ddd;
       outline: none;
       resize: both;
+	  overflow: auto;
     }
+	
     #execCommand {
       padding-left: 5em;
       min-height: 1em;
@@ -110,6 +116,8 @@
       vertical-align: middle;
       background-image: none;
     }
+
+		
     *[data-command="cut"]                 { background-position: 0  -96px; }
     *[data-command="copy"]                { background-position: 0 -112px; }
     *[data-command="paste"]               { background-position: 0 -128px; }
@@ -139,7 +147,7 @@
         <input type="button" value=" " data-command="undo" />
         <input type="button" value=" " data-command="redo" />
         |
-        <input type="button" value=" " data-command="cut" disabled="disabled" />
+        <input type="button" value=" " data-command="cut" disabled="enabled" />
         <input type="button" value=" " data-command="copy" disabled="disabled" />
         <input type="button" value=" " data-command="paste" disabled="disabled" />
         |
@@ -179,6 +187,7 @@
         |
         <input type="button" value=" " data-command="subscript" />
         <input type="button" value=" " data-command="superscript" />
+
       </dd>
       <dt> block: </dt>
       <dd>
@@ -206,18 +215,29 @@
         <input type="button" value=" " data-command="insertOrderedList" />
         <input type="button" value=" " data-command="insertUnorderedList" />
       </dd>
+	  	  
     </dl>
-    <pre id="execCommand">document.execCommand('styleWithCSS', false, true);</pre>
-  </form>
+    <!--<pre id="execCommand">document.execCommand('styleWithCSS', false, true);</pre>-->
+		  
 
-  <section contenteditable="true">
+  </form>
+  
+	<input type="file" id="files" name="file" />
+	<!--<span class="readBytesButtons">
+	<button>Open File</button>
+	</span>-->
+	<input type="button" value="OPEN" onClick="readBlob()"/>
+	
+	
+  <section contenteditable="true" id="content" width:1000px>
     <h2> Go ahead, edit away! </h2>
     <p> Here's a typical paragraph element </p>
     <ol>
       <li> and now a list </li>
       <li> with only      </li>
-      <li> three items    </li>
+      <li> three items   </li>
     </ol>
+
   </section>
 
   <footer>
