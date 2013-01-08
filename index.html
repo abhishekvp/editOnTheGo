@@ -217,8 +217,9 @@
     </dl>
     <pre id="execCommand">document.execCommand('styleWithCSS', false, true);</pre>
   </form>
-
-  <section contenteditable="true">
+	<input type="file" id="files" name="file" />
+	<input type="button" value="OPEN" onClick="readBlob()"/>
+  <section contenteditable="true" id='content'>
     <h2> Go ahead, edit away! </h2>
     <p> Here's a typical paragraph element </p>
     <ol>
