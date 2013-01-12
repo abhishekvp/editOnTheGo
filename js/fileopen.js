@@ -1,5 +1,5 @@
 
-function readBlob() {
+function readFile() {
     var files = document.getElementById('files').files;
     if(!files.length)
 	return;    
