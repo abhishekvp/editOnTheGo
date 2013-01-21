@@ -1,57 +1,4 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta charset="UTF-8" />
-    <link rel="app-manifest" href="http://abhishekp91.github.com/richtextdoc_edit_OWA/manifest.webapp"/>
-	<link rel="stylesheet" type="text/css" href="menu_style.css" />
-	<link rel="stylesheet" type="text/css" href="edit_style.css">
-  <title> OWA - contentEditable </title>
-  <script type="text/javascript" src="js/fileopen.js"></script>
-  <script type="text/javascript" src="js/mozapp.js"></script>
-  <script type="text/javascript" src="js/iDb.js"></script>
-  <script type="text/javascript" src="js/UI.js"></script>
-  <script type="text/javascript">//<![CDATA[
-    var
-      gActiveEditor = null, // active editing host
-      gCommandDump  = null; // command dump field
-    function ExecCommand(toolbarElement) {
-      var argVal, argStr,
-          type    = toolbarElement.getAttribute("type"),
-          command = toolbarElement.getAttribute("data-command");
-      switch (type) {    // get the execCommand argument according to the button type
-        case "button":   // toolbar button: no argument
-          argVal = argStr = false;
-          break;
-        case "checkbox": // styleWithCSS: boolean argument
-          argVal = argStr = toolbarElement.checked;
-          break;
-        default:         // <select> menu: string argument
-          if (!toolbarElement.selectedIndex) return;
-          argVal = toolbarElement.value;
-          argStr = "'" + argVal.replace("<", "&lt;").replace(">", "&gt;") + "'";
-          toolbarElement.selectedIndex = 0; // reset drop-down list
-      }
-      document.execCommand(command, false, argVal); // send requested action
-      if (gActiveEditor) gActiveEditor.focus();     // re-focus the editable element
-      gCommandDump.innerHTML = "document.execCommand('" + command + "', false, " + argStr + ");";
-    }
-    window.addEventListener("DOMContentLoaded", function() {
-      var i,
-        buttons = document.querySelectorAll("*[data-command]"),
-        editors = document.querySelectorAll("*[contenteditable]");
-      for (i = 0; i < buttons.length; i++) {
-        buttons[i].onclick  = function() { ExecCommand(this); };
-        buttons[i].onchange = function() { ExecCommand(this); };
-      }
-      for (i = 0; i < editors.length; i++)
-        editors[i].onfocus = function() { gActiveEditor = this; };
-      gCommandDump = document.querySelector("#execCommand");
-      ExecCommand(document.querySelector("*[data-command=styleWithCSS]"));
-    }, false);
-  //]]></script>
-<<<<<<< HEAD
-  <style type="text/css">
-    html {
+html {
       background: #111;
       color: #eee;
       font-family: sans-serif;
@@ -66,19 +13,22 @@
       border: 2px solid #eee;
       overflow: auto;
     }
+	body a {
+	  color: #3D5C9D;
+      text-decoration: none;
+      cursor: pointer;
+	}
     *[contenteditable] {
       margin: 1em auto;
-      width: 80%;
-      height:900px;
+       width: 80%;
+       height:900px;
       padding: 10px;
       background: #fff;
       color: #111;
       border: 1px solid #ddd;
       outline: none;
       resize: both;
-	  overflow: auto;
     }
-	
     #execCommand {
       padding-left: 5em;
       min-height: 1em;
@@ -106,6 +56,8 @@
       height: 20px;
       width: 20px;
     }
+	
+	
     #toolbar *[disabled] {
       opacity: 0.5;
     }
@@ -119,166 +71,22 @@
       vertical-align: middle;
       background-image: none;
     }
-=======
->>>>>>> GUI Modified
-
-</head>
-<body onload="init();">
-
-
-
-
-
-<div class="navigationMenu" >
-<form id="toolbar">
-<dl>
-         <!--  File menu-->
-	    <a class="doc" href="#">
-            <span>
-			<dd>
-			File open, Save and other File options
-			<!--<input type="button" value="New"/>&nbsp;<input type="button" value=" Save"/>&nbsp;<input type="button" value="Save As" onclick="save();"/>
-			--></dd>
-			</span>
-        </a>
-		
-		
-		<!--  Edit menu-->
-    	<a class="edit" href="#">
-            <span>
-			 <dt> Edit: </dt><br>
-			<dd>
-        <input type="button" value=" " data-command="undo" />
-        <input type="button" value=" " data-command="redo" />
-        |
-        <input type="button" value=" " data-command="cut" disabled="disabled" />
-        <input type="button" value=" " data-command="copy" disabled="disabled" />
-        <input type="button" value=" " data-command="paste" disabled="disabled" />
-        |
-        <input type="checkbox" data-command="styleWithCSS" checked="checked" />
-        style with CSS
-      </dd>
-	  </span>
-		</a>
-
-		
-		<!--  Format_1 menu-->
-	     <a class="format_inline" href="#">
-		         <span>
-		 <dt> Inline: </dt><br>
-      <dd>
-        <select data-command="fontName">
-          <option value="" disabled="disabled" selected="selected"> Font </option>
-          <option value="serif">           serif           </option>
-          <option value="sans-serif">      sans-serif      </option>
-          <option value="monospace">       monospace       </option>
-          <option value=" " disabled="disabled">   -               </option>
-          <option value="Arial">           Arial           </option>
-          <option value="Courier New">     Courier New     </option>
-          <option value="Times New Roman"> Times New Roman </option>
-          <option value="Verdana">         Verdana         </option>
-        </select>
-        <select data-command="fontSize">
-          <option value="" disabled="disabled" selected="selected"> Size </option>
-          <option value="1"> 1 </option>
-          <option value="2"> 2 </option>
-          <option value="3"> 3 </option>
-          <option value="4"> 4 </option>
-          <option value="5"> 5 </option>
-          <option value="6"> 6 </option>
-          <option value="7"> 7 </option>
-        </select>
-        <input type="button" value="-" data-command="decreaseFontSize" />
-        <input type="button" value="+" data-command="increaseFontSize" />
-        |
-        <input type="button" value=" " data-command="bold" />
-        <input type="button" value=" " data-command="italic" />
-        <input type="button" value=" " data-command="underline" />
-        <input type="button" value=" " data-command="strikeThrough" />
-        |
-        <input type="button" value=" " data-command="subscript" />
-        <input type="button" value=" " data-command="superscript" />
-      </dd>
-			</span>
-         </a>
-
-		 
-		 
-		 <!--  Format_2 menu-->
-    	<a class="format_block" href="#">
-            <span> 
-			<dt> Block: </dt> <br>
-      <dd>
-        <select data-command="formatBlock">
-          <option value="" disabled="disabled" selected="selected"> Format </option>
-          <option value="&lt;p&gt;"> paragraph </option>
-          <option value="&lt;h1&gt;"> heading 1 </option>
-          <option value="&lt;h2&gt;"> heading 2 </option>
-          <option value="&lt;h3&gt;"> heading 3 </option>
-          <option value="&lt;h4&gt;"> heading 4 </option>
-          <option value="&lt;h5&gt;"> heading 5 </option>
-          <option value="&lt;h6&gt;"> heading 6 </option>
-          <option value="&lt;address&gt;"> address </option>
-          <option value="&lt;pre&gt;"> preformatted </option>
-        </select>
-        |
-        <input type="button" value=" " data-command="justifyLeft" />
-        <input type="button" value=" " data-command="justifyCenter" />
-        <input type="button" value=" " data-command="justifyRight" />
-        <input type="button" value=" " data-command="justifyFull" />
-        |
-        <input type="button" value=" " data-command="outdent" />
-        <input type="button" value=" " data-command="indent" />
-        |
-        <input type="button" value=" " data-command="insertOrderedList" />
-        <input type="button" value=" " data-command="insertUnorderedList" />
-      </dd>
-	  </span>
-        </a>
- 
- 
- 
- 
-    	<a class="rsvd" href="#">
-            <span>Reserved<br>(If not required, we will remove it)</span>
-        </a>
-		
-		   </dl>
-		</form>
-</div>  
-
-
-
-  
-    
-     
-      
-      
-    
- 
-    <pre id="execCommand">document.execCommand('styleWithCSS', false, true);</pre>
-  
-  
-  
-  
-	<input type="file" id="files" name="file" />
-	<input type="button" value="OPEN" onClick="readFile()"/>
-  <section contenteditable="true" id='content'>
-    <h2> Go ahead, edit away! </h2>
-    <p> Here's a typical paragraph element </p>
-    <ol>
-      <li> and now a list </li>
-      <li> with only      </li>
-      <li> three items    </li>
-    </ol>
-  </section>
-
-  <footer>
-   
-  </footer>
-  
-    <ul id="docList"></ul>
-    <input type="text" id="docName"  placeholder="Please Enter File Name" style="width: 200px;" />
-    <input type="submit" value="Save" onclick="saveDoc(); return false;"/>
-</body>
-</html>
+    *[data-command="cut"]                 { background-position: 0  -96px; }
+    *[data-command="copy"]                { background-position: 0 -112px; }
+    *[data-command="paste"]               { background-position: 0 -128px; }
+    *[data-command="undo"]                { background-position: 0 -208px; }
+    *[data-command="redo"]                { background-position: 0 -224px; }
+    *[data-command="bold"]                { background-position: 0 -304px; }
+    *[data-command="italic"]              { background-position: 0 -320px; }
+    *[data-command="underline"]           { background-position: 0 -336px; }
+    *[data-command="strikeThrough"]       { background-position: 0 -352px; }
+    *[data-command="subscript"]           { background-position: 0 -368px; }
+    *[data-command="superscript"]         { background-position: 0 -384px; }
+    *[data-command="insertOrderedList"]   { background-position: 0 -400px; }
+    *[data-command="insertUnorderedList"] { background-position: 0 -416px; }
+    *[data-command="outdent"]             { background-position: 0 -432px; }
+    *[data-command="indent"]              { background-position: 0 -448px; }
+    *[data-command="justifyLeft"]         { background-position: 0 -464px; }
+    *[data-command="justifyCenter"]       { background-position: 0 -480px; }
+    *[data-command="justifyRight"]        { background-position: 0 -496px; }
+    *[data-command="justifyFull"]         { background-position: 0 -512px; }
