@@ -1,7 +1,6 @@
 
 .navigationMenu  {
 	height:39px;
-	margin:auto;
 	padding:5px;
 	width:190px;
 	position: fixed;
@@ -11,9 +10,9 @@
 }
 
 .navigationMenu span{
+
 	width:0;
 	bottom:39px;/* modifies upper hover*/
-	left:10px;
 	padding:0;
 	position:absolute;
 	overflow:hidden;
