@@ -57,12 +57,17 @@
    float:left;
    position:relative;
 }
-.navigationMenu .doc:hover {	background-position:0 -39px;}
+.navigationMenu .doc:hover 
+{
+	background-position:0 -39px;
+	margin:auto;
+	}
 .navigationMenu .doc span{
 float:left;
 	background-color:#7da315;
 	color:#3d4f0c;
 	text-shadow:1px 1px 0 #99bf31;
+	left:-320%;
 }
 
 /* Editing Section */
@@ -79,6 +84,7 @@ float:left;
 	background-color:#1e8bb4;
 	color:#223a44;
 	text-shadow:1px 1px 0 #44a8d0;
+	left:-370%;
 }
 
 /* Inline Formatting Section */
@@ -93,6 +99,7 @@ float:left;
 	background-color:#c86c1f;
 	color:#5a3517;
 	text-shadow:1px 1px 0 #d28344;
+	left:-570%;
 }
 
 /* Block Formatting Section */
@@ -107,6 +114,7 @@ float:left;
 	background-color:#d0a525;
 	color:#604e18;
 	text-shadow:1px 1px 0 #d8b54b;
+	left:-590%;
 }
 
 /* Reserved Section */
@@ -121,6 +129,7 @@ float:left;
 	background-color:#af1e83;
 	color:#460f35;
 	text-shadow:1px 1px 0 #d244a6;
+	left:-620%;
 }
 
 
