@@ -3,13 +3,15 @@ html {
       color: #eee;
       font-family: sans-serif;
       font-size: 12px;
+	  min-height:100%;
     }
     body {
       margin: 1em auto;
       padding: 5px 20px;
       width: 80%;
+	  min-height:100%;
       background: #eee;
-      color: #111;
+      /*color: #111;*/
       border: 2px solid #eee;
       overflow: auto;
     }
@@ -20,15 +22,17 @@ html {
 	}
     *[contenteditable] {
       margin: 1em auto;
-       width: 80%;
-       height:900px;
+	  min-height:900px;
+	   bottom:1px;
       padding: 10px;
       background: #fff;
       color: #111;
       border: 1px solid #ddd;
       outline: none;
       resize: both;
+	  overflow:visible;
     }
+	
     #execCommand {
       padding-left: 5em;
       min-height: 1em;
