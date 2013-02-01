@@ -1,4 +1,3 @@
-
 .navigationMenu  {
 	height:39px;
 	padding:5px;
@@ -6,7 +5,7 @@
 	position: fixed;
     z-index: 100; 
     bottom: 10px; 
-    left: 0;
+    left: 50%;
 }
 
 .navigationMenu span{
