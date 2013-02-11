@@ -15,7 +15,7 @@
  * 		      Field (text) : Document Contents [Generally in HTML]
  *
  */
-var db;
+var db, fn, tmp;
 const DB_NAME = "documents";
 
 /**
@@ -28,6 +28,7 @@ function init() {
     window.alert("Your browser doesn't support a stable version of IndexedDB. Saving and Loading Documents feature will not be available.");
   } else {
     initIndexedDB();
+	document.getElementById('saveButton').disabled = true;
   }
 };
 
@@ -63,13 +64,19 @@ function initIndexedDB() {
  *	        Content of the Document.
  *		
  */
-function saveDocument(docName, docContent) {
+function saveDocument(docName, docContent, timeStamp) {
   var trans = db.transaction(["doc"], "readwrite");
   var store = trans.objectStore("doc");
-  var data = {
+  if(timeStamp==" "){
+  timeStamp = Date.now();
+  tmp = timeStamp;
+  }
+  else
+  timeStamp = tmp;
+    var data = {
     "filename": docName,
     "text": docContent,
-    "timeStamp": Date.now()
+    "timeStamp": timeStamp
   };
   var request = store.put(data);
   request.onsuccess = function onSuccess_Save(e) {
@@ -78,6 +85,7 @@ function saveDocument(docName, docContent) {
   request.onerror = function onError_Save(e) {
     alert("An Error Occured while Saving Document!");
   };
+  document.getElementById('saveButton').disabled = false;
 };
 
 /**
@@ -125,9 +133,21 @@ function displayDocList() {
  *Captures the user input values of Document Name and Document Contents from Web page. 
  *Calls |saveDocument()| method.
  */
-function saveDoc() {
-  var docName = document.getElementById('docName').value;
+function saveAsDoc() {
+  var docName = prompt("Please enter document name","");
   var docContent = document.getElementsByTagName('section')[0].innerHTML;
-  saveDocument(docName, docContent);
+  fn = docName;
+  saveDocument(docName, docContent, " ");
   document.getElementById('docName').value = "";
+  
+};
+
+/**
+ *Updates already saved document 
+ *Calls |saveDocument()| method.
+ */
+function saveDoc() {
+  var docName = fn;
+  var docContent = document.getElementsByTagName('section')[0].innerHTML;
+  saveDocument(docName, docContent, tmp);
 };

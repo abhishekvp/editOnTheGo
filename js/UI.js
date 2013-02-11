@@ -14,7 +14,10 @@ function renderDocNames(row) {
   var a = document.createElement("a");
   var aDel = document.createElement("a");
   a.addEventListener("click", function () {
+    fn= row.filename;
+	tmp= row.timeStamp;
     document.getElementsByTagName('section')[0].innerHTML = row.text;
+	document.getElementById('saveButton').disabled = false;
   }, false);
 
   aDel.addEventListener("click", function () {
