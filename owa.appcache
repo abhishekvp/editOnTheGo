@@ -6,7 +6,7 @@ menu_style.css
 manifest.webapp
 js/fileopen.js
 js/iDb.js
-js/mozapps.js
+js/mozapp.js
 js/UI.js
 img/mortar-16.png
 img/mortar-48.png
