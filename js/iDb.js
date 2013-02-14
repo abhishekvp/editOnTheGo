@@ -30,7 +30,8 @@ function init() {
   } else {
     initIndexedDB();
 	document.getElementById('saveButton').disabled = true;
-	setInterval(function(){autoSave()},10000);	
+	setInterval(function(){autoSave()},10000);
+	currentDoc();
   }
 };
 
@@ -88,6 +89,7 @@ function saveDocument(docName, docContent, timeStamp) {
     alert("An Error Occured while Saving Document!");
   };
   document.getElementById('saveButton').disabled = false;
+  currentDoc();
 };
 
 /**
@@ -108,6 +110,7 @@ function deleteDoc(id) {
   request.onerror = function onError_Del(e) {
     alert("Delete Request Error !");
   };
+  currentDoc();
 };
 
 /**

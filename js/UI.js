@@ -18,6 +18,7 @@ function renderDocNames(row) {
 	tmp= row.timeStamp;
     document.getElementsByTagName('section')[0].innerHTML = row.text;
 	document.getElementById('saveButton').disabled = false;
+	currentDoc();
   }, false);
 
   aDel.addEventListener("click", function () {
@@ -29,4 +30,10 @@ function renderDocNames(row) {
   li.appendChild(a);
   li.appendChild(aDel);
   listElement.appendChild(li);
+};
+function currentDoc() {
+if(fn==null)
+document.getElementById("currDoc").innerHTML = "Current Document : Unsaved";
+else
+document.getElementById("currDoc").innerHTML = "Current Document : "+fn;
 };
