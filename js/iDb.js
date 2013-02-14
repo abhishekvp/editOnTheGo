@@ -99,6 +99,8 @@ function deleteDoc(id) {
   var trans = db.transaction(["doc"], "readwrite");
   var store = trans.objectStore("doc");
   var request = store.delete(id);
+  fn = null;
+  document.getElementById('saveButton').disabled = true;
   request.onsuccess = function onSuccess_Del(e) {
     displayDocList();
   };
