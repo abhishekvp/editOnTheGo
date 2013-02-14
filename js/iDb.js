@@ -18,6 +18,7 @@
 var db, fn, tmp;
 const DB_NAME = "documents";
 
+
 /**
  *Checks browser compatibilty with indexedDB and calls |initIndexedDB()|
  */
@@ -29,6 +30,7 @@ function init() {
   } else {
     initIndexedDB();
 	document.getElementById('saveButton').disabled = true;
+	setInterval(function(){autoSave()},10000);	
   }
 };
 
@@ -138,8 +140,7 @@ function saveAsDoc() {
   var docContent = document.getElementsByTagName('section')[0].innerHTML;
   fn = docName;
   saveDocument(docName, docContent, " ");
-  document.getElementById('docName').value = "";
-  
+  document.getElementById('docName').value = "";  
 };
 
 /**
@@ -150,4 +151,15 @@ function saveDoc() {
   var docName = fn;
   var docContent = document.getElementsByTagName('section')[0].innerHTML;
   saveDocument(docName, docContent, tmp);
+};
+
+function autoSave() {
+  if(fn!=null){
+  var docName = fn;
+  var docContent = document.getElementsByTagName('section')[0].innerHTML;
+  saveDocument(docName, docContent, tmp);
+  console.log("Auto saved");
+  }
+  else
+  console.log("No file selected for auto saving");
 };
