@@ -23,7 +23,7 @@ const DB_NAME = "documents";
  *Checks browser compatibilty with indexedDB and calls |initIndexedDB()|
  */
 function init() {
-  appInstall();
+  chkInstall();
   window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
   if (!window.indexedDB) {
     window.alert("Your browser doesn't support a stable version of IndexedDB. Saving and Loading Documents feature will not be available.");
