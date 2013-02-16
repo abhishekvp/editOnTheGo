@@ -4,7 +4,7 @@ function appInstall(result) {
             manifestURL = manLink.getAttribute('href');
         var requestChk = navigator.mozApps.install(manifestURL);
         requestChk.onsuccess = function () {
-            alert("Application installed successfully !");
+            console.log("Application installed successfully !");
         }
         requestChk.onerror = function () {
             alert("Error while trying to install :" + this.error.name);
@@ -17,11 +17,10 @@ function appInstall(result) {
 function chkInstall() {
     try1();
     function try1() {
-
         var req1 = navigator.mozApps.getSelf();
         req1.onsuccess = function () {
             if (req1.result === null) {
-                console.log("jump to try 1()");
+                console.log("Got null from getSelf() ! Now trying getInstalled()");
                 try2();
             } else {
                 appInstall(req1.result);
@@ -37,20 +36,17 @@ function chkInstall() {
         req2.onsuccess = function () {
             var result = null;
             var myorigin = window.location.protocol + "//" + window.location.host;
-            console.log("host=" + window.location.host);
             if (req2.result !== null) {
-                console.log("length=" + req2.result.length);
-                req2.result.forEach(function (app) {
-                    console.log("app origin=" + app.origin);
+                req2.result.forEach(function (app) {              
                     if (app.origin == myorigin) {
                         result = app;
-                        console.log("inside if:app origin=" + app.origin);
                     }
                 });
             }
-            console.log("result=" + result);
             appInstall(result);
         }
-        req2.onerror = error;
+        req2.onerror = function() {
+		alert(this.error.name);
+		};
     }
 };
