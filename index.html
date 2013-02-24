@@ -64,9 +64,10 @@
 	    <a class="doc" href="#">
             <span>
 			<dd>
-			File open, Save and other File options
-			<!--<input type="button" value="New"/>&nbsp;<input type="button" value=" Save"/>&nbsp;<input type="button" value="Save As" onclick="save();"/>
-			--></dd>
+			<input  type="button" value="" onclick="window.location.reload()"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
+			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
+			<input  type="button" value="" onclick="saveAsDoc(); return false;" style="background-image: url('icons/file-save-as-icon.png');  background-size:16px 16px;"/>
+			</dd>
 			</span>
         </a>
 		
@@ -79,7 +80,7 @@
         <input type="button" value=" " data-command="undo" />
         <input type="button" value=" " data-command="redo" />
         |
-        <input type="button" value=" " data-command="cut" disabled="disabled" />
+        <input type="button" value=" " data-command="cut"  />
         <input type="button" value=" " data-command="copy" disabled="disabled" />
         <input type="button" value=" " data-command="paste" disabled="disabled" />
         |
@@ -192,8 +193,5 @@
   </footer>
   
     <ul id="docList"></ul>
-	<input type="button" value="New" onclick="window.location.reload()"/>
-    <input type="button" value="Save As" onclick="saveAsDoc(); return false;"/>
-	<input id="saveButton" type="button" value="Save" onclick="saveDoc(); return false;" disabled="true"/>
 </body>
 </html>
