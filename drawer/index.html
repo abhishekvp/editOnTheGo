@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>EditOnTheGo</title>
+  <meta name="description" content="An OWA to edit rich text documents">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="headers.css">
+  <link rel="stylesheet" href="drawer.css">
+
+
+
+  <!--My Code Starts here -->
+  <link rel="app-manifest" href="http://abhishekp91.github.com/richtextdoc_edit_OWA/drawer/manifest.webapp"/>
+   
+  <link rel="stylesheet" type="text/css" href="menu_style.css" />
+  <link rel="stylesheet" type="text/css" href="edit_style.css">
+	
+  <script type="text/javascript" src="js/fileopen.js"></script>
+  <script type="text/javascript" src="js/mozapp.js"></script>
+  <script type="text/javascript" src="js/iDb.js"></script>
+  <script type="text/javascript" src="js/UI.js"></script>
+  <script type="text/javascript" src="js/editor.js"></script>
+  <!--My Code Ends here -->
+</head>
+
+<body role="application" onload="init();">
+
+  <section data-type="sidebar">
+    <header>
+ 
+      <h1>Saved Documents</h1>
+    </header>
+    <nav>
+      <ul id="docList"></ul>
+    </nav>
+  </section>
+
+  <section id="drawer" role="region">
+    <header>
+      <a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+      <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+      <h1>EditOnTheGo</h1>
+    </header>
+    <div role="main">
+	
+	<br>	<input type="file" id="files" name="file" />
+	<input type="button" value="OPEN" onClick="readFile()"/><a style="float:right; padding-right:10px;"id="currDoc"></a>
+	<!-- Body of our app starts here-->
+	
+
+
+
+
+
+<div class="navigationMenu" >
+<form id="toolbar">
+<dl>
+         <!--  File menu-->
+	    <a class="doc" href="#">
+            <span>
+			<dd>
+			<input  type="button" value="" onclick="window.location.reload()"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
+			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
+			<input  type="button" value="" onclick="saveAsDoc(); return false;" style="background-image: url('icons/file-save-as-icon.png');  background-size:16px 16px;"/>
+			</dd>
+			</span>
+        </a>
+		
+		
+		<!--  Edit menu-->
+    	<a class="edit" href="#">
+            <span>
+			 <dt> Edit: </dt><br>
+			<dd>
+        <input type="button" value=" " data-command="undo" />
+        <input type="button" value=" " data-command="redo" />
+        |
+        <input type="button" value=" " data-command="cut"  />
+        <input type="button" value=" " data-command="copy" disabled="disabled" />
+        <input type="button" value=" " data-command="paste" disabled="disabled" />
+        |
+        <input type="checkbox" data-command="styleWithCSS" checked="checked" />
+        style with CSS
+      </dd>
+	  </span>
+		</a>
+
+		
+		<!--  Format_1 menu-->
+	     <a class="format_inline" href="#">
+		         <span>
+		 <dt> Inline: </dt><br>
+      <dd>
+        <select data-command="fontName">
+          <option value="" disabled="disabled" selected="selected"> Font </option>
+          <option value="serif">           serif           </option>
+          <option value="sans-serif">      sans-serif      </option>
+          <option value="monospace">       monospace       </option>
+          <option value=" " disabled="disabled">   -               </option>
+          <option value="Arial">           Arial           </option>
+          <option value="Courier New">     Courier New     </option>
+          <option value="Times New Roman"> Times New Roman </option>
+          <option value="Verdana">         Verdana         </option>
+        </select>
+        <select data-command="fontSize">
+          <option value="" disabled="disabled" selected="selected"> Size </option>
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+          <option value="5"> 5 </option>
+          <option value="6"> 6 </option>
+          <option value="7"> 7 </option>
+        </select>
+        <input type="button" value="-" data-command="decreaseFontSize" />
+        <input type="button" value="+" data-command="increaseFontSize" />
+        |
+        <input type="button" value=" " data-command="bold" />
+        <input type="button" value=" " data-command="italic" />
+        <input type="button" value=" " data-command="underline" />
+        <input type="button" value=" " data-command="strikeThrough" />
+        |
+        <input type="button" value=" " data-command="subscript" />
+        <input type="button" value=" " data-command="superscript" />
+      </dd>
+			</span>
+         </a>
+
+		 
+		 
+		 <!--  Format_2 menu-->
+    	<a class="format_block" href="#">
+            <span> 
+			<dt> Block: </dt> <br>
+      <dd>
+        <select data-command="formatBlock">
+          <option value="" disabled="disabled" selected="selected"> Format </option>
+          <option value="&lt;p&gt;"> paragraph </option>
+          <option value="&lt;h1&gt;"> heading 1 </option>
+          <option value="&lt;h2&gt;"> heading 2 </option>
+          <option value="&lt;h3&gt;"> heading 3 </option>
+          <option value="&lt;h4&gt;"> heading 4 </option>
+          <option value="&lt;h5&gt;"> heading 5 </option>
+          <option value="&lt;h6&gt;"> heading 6 </option>
+          <option value="&lt;address&gt;"> address </option>
+          <option value="&lt;pre&gt;"> preformatted </option>
+        </select>
+        |
+        <input type="button" value=" " data-command="justifyLeft" />
+        <input type="button" value=" " data-command="justifyCenter" />
+        <input type="button" value=" " data-command="justifyRight" />
+        <input type="button" value=" " data-command="justifyFull" />
+        |
+        <input type="button" value=" " data-command="outdent" />
+        <input type="button" value=" " data-command="indent" />
+        |
+        <input type="button" value=" " data-command="insertOrderedList" />
+        <input type="button" value=" " data-command="insertUnorderedList" />
+      </dd>
+	  </span>
+        </a>
+ 
+ 
+ 
+ 
+    	<a class="rsvd" href="#">
+            <span>Reserved<br>(If not required, we will remove it)</span>
+        </a>
+		
+		   </dl>
+		</form>
+</div>  
+
+
+  <section contenteditable="true" id='contentE'>
+    <h2> Go ahead, edit away! </h2>
+    <p> Here's a typical paragraph element </p>
+    <ol>
+      <li> and now a list </li>
+      <li> with only      </li>
+      <li> three items    </li>
+    </ol>
+  </section>
+
+  <footer>
+   
+  </footer>
+  
+
+	
+   <!--Body of our app ends here -->
+	
+	</div>
+  </section>
+
+</body>
+</html>
