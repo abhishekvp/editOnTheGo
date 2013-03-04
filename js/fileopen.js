@@ -6,7 +6,7 @@ function readFile() {
     var reader = new FileReader();
     reader.onloadend = function(evt) {  
       if (evt.target.readyState == FileReader.DONE) {
-        document.getElementById('contentE').innerHTML = evt.target.result;
+        document.getElementById('content').innerHTML = evt.target.result;
       }	  
     };
     reader.readAsBinaryString(files[0]);
