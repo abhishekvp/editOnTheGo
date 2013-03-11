@@ -4,13 +4,14 @@ function appInstall(result) {
             manifestURL = manLink.getAttribute('href');
         var requestChk = navigator.mozApps.install(manifestURL);
         requestChk.onsuccess = function () {
-            console.log("Application installed successfully !");
+            console.log("Application installed successfully !");			
         }
         requestChk.onerror = function () {
             alert("Error while trying to install :" + this.error.name);
         }
     } else {
-        console.log("App Already Installed");
+		document.getElementById("installBtn").style.visibility="hidden"; 
+		console.log("App Already Installed");	      
     }
 };
 
@@ -36,8 +37,9 @@ function chkInstall() {
         req2.onsuccess = function () {
             var result = null;
             var myorigin = window.location.protocol + "//" + window.location.host;
+			
             if (req2.result !== null) {
-                req2.result.forEach(function (app) {              
+                req2.result.forEach(function (app) {     
                     if (app.origin == myorigin) {
                         result = app;
                     }
