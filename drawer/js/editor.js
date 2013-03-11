@@ -1,6 +1,5 @@
 var
       gActiveEditor = null, // active editing host
-      gCommandDump  = null; // command dump field
     function ExecCommand(toolbarElement) {
       var argVal, argStr,
           type    = toolbarElement.getAttribute("type"),
@@ -20,7 +19,6 @@ var
       }
       document.execCommand(command, false, argVal); // send requested action
       if (gActiveEditor) gActiveEditor.focus();     // re-focus the editable element
-      gCommandDump.innerHTML = "document.execCommand('" + command + "', false, " + argStr + ");";
     }
     window.addEventListener("DOMContentLoaded", function() {
       var i,
@@ -32,6 +30,6 @@ var
       }
       for (i = 0; i < editors.length; i++)
         editors[i].onfocus = function() { gActiveEditor = this; };
-      gCommandDump = document.querySelector("#execCommand");
+      
       ExecCommand(document.querySelector("*[data-command=styleWithCSS]"));
     }, false);
