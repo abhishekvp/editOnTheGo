@@ -142,12 +142,15 @@ function displayDocList() {
  */
 function saveAsDoc() {
   var docName = prompt("Please enter document name","");
-  var docContent = document.getElementById('contentE').innerHTML;
-  //alert("This is going to be saved:\n"+docContent);
-  fn = docName;
-  saveDocument(docName, docContent, " ");
-  alert("Document "+docName+" saved successfully !");
-  document.getElementById('docName').value = "";  
+  var tmpDocName = docName.replace(/^\s+|\s+$/, '');
+  if(tmpDocName.length!=0) {
+    var docContent = document.getElementById('contentE').innerHTML;
+    //alert("This is going to be saved:\n"+docContent);
+    fn = docName;
+    saveDocument(docName, docContent, " ");
+    alert("Document "+docName+" saved successfully !");
+    document.getElementById('docName').value = "";
+  }
 };
 
 /**
