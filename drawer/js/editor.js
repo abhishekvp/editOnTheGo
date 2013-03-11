@@ -1,5 +1,4 @@
-var
-      gActiveEditor = null, // active editing host
+    var gActiveEditor = null; // active editing host
     function ExecCommand(toolbarElement) {
       var argVal, argStr,
           type    = toolbarElement.getAttribute("type"),
