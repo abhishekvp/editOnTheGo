@@ -1,19 +1,23 @@
-function appInstall(result) {
-    if (!result) {
-        var manLink = document.querySelector('link[rel="app-manifest"]'),
-            manifestURL = manLink.getAttribute('href');
-        var requestChk = navigator.mozApps.install(manifestURL);
-        requestChk.onsuccess = function () {
-            console.log("Application installed successfully !");			
-        }
-        requestChk.onerror = function () {
-            alert("Error while trying to install :" + this.error.name);
-        }
+function renderInstallButton(result) {
+    if (!result) { 
+		console.log("App Not Installed");    
     } else {
 		document.getElementById("installBtn").style.visibility="hidden"; 
 		console.log("App Already Installed");	      
     }
 };
+
+function installApp() {
+  var manLink = document.querySelector('link[rel="app-manifest"]'),
+            manifestURL = manLink.getAttribute('href');
+  var requestChk = navigator.mozApps.install(manifestURL);
+  requestChk.onsuccess = function () {
+    console.log("Application installed successfully !");			
+  }
+  requestChk.onerror = function () {
+    alert("Error while trying to install :" + this.error.name);
+  }
+}
 
 function chkInstall() {
     try1();
