@@ -28,7 +28,7 @@ function chkInstall() {
                 console.log("Got null from getSelf() ! Now trying getInstalled()");
                 try2();
             } else {
-                appInstall(req1.result);
+                renderInstallButton(req1.result);
             }
         };
         req1.onerror = function () {
@@ -49,7 +49,7 @@ function chkInstall() {
                     }
                 });
             }
-            appInstall(result);
+            renderInstallButton(result);
         }
         req2.onerror = function() {
 		alert(this.error.name);
