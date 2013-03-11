@@ -12,7 +12,8 @@ function installApp() {
             manifestURL = manLink.getAttribute('href');
   var requestChk = navigator.mozApps.install(manifestURL);
   requestChk.onsuccess = function () {
-    console.log("Application installed successfully !");			
+    document.getElementById("installBtn").style.visibility="hidden";
+    console.log("Application installed successfully !");	
   }
   requestChk.onerror = function () {
     alert("Error while trying to install :" + this.error.name);
