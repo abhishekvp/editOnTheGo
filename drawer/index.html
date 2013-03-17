@@ -45,15 +45,13 @@
     </header>
     <div role="main">
 	
-	<br>	<input type="file" id="files" name="file" />
-	<input type="button" value="OPEN" onClick="readFile()"/>
+	<br>
 	<input id="installBtn" type="button" value="Install" onclick="installApp()" /><a style="float:right; padding-right:10px;"id="currDoc"></a>
 	<!-- Body of our app starts here-->
 	
 
 
-
-
+<input type="file" id="files" name="file"  style="visibility:hidden;"   onChange="readFile();"/>
 
 <div class="navigationMenu" >
 <form id="toolbar">
@@ -63,6 +61,7 @@
             <span>
 			<dd>
 			<input  type="button" value="" onclick="window.location.reload()"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
+			<input type="button" value="OPEN" onClick="javascript:document.getElementById('files').click(); " />
 			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
 			<input  type="button" value="" onclick="saveAsDoc(); return false;" style="background-image: url('icons/file-save-as-icon.png');  background-size:16px 16px;"/>
 			</dd>

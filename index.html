@@ -55,7 +55,7 @@
 </a>
 
 
-<input type="file" id="files" name="file"  style="visibility:hidden;"/>
+<input type="file" id="files" name="file"  style="visibility:hidden;"  onChange="readFile();"/>
 	        
 
 <div class="navigationMenu" >
@@ -66,7 +66,7 @@
             <span>
 			<dd>
 			<input  type="button" value="" onclick="window.location.reload()"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
-			<input type="button" value="OPEN" onClick="javascript:document.getElementById('files').click();readFile();"/>
+			<input type="button" value="OPEN" onClick="javascript:document.getElementById('files').click();"  />
 			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
 			<input  type="button" value="" onclick="saveAsDoc(); return false;" style="background-image: url('icons/file-save-as-icon.png');  background-size:16px 16px;"/>
 			</dd>

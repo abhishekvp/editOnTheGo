@@ -9,5 +9,6 @@ function readFile() {
         document.getElementById('contentE').innerHTML = evt.target.result;
       }	  
     };
-    reader.readAsBinaryString(files[0]);
+
+   reader.readAsBinaryString(files[0]);
   }
