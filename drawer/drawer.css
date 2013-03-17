@@ -111,6 +111,9 @@ section[data-type="sidebar"] > nav > ul > li {
   transition: background 0.2s ease;
 }
 
+section[data-type="sidebar"] > nav > ul > li > a { 
+  cursor:pointer;
+}
 
 section[data-type="sidebar"] > nav > ul > li { 
   text-decoration: none;

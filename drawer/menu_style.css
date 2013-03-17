@@ -15,6 +15,7 @@
 	padding:0;
 	position:absolute;
 	overflow:hidden;
+    cursor:default;
 
 	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
 	font-size:18px;
