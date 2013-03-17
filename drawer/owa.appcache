@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v1 2013-02-15
+# v1 2013-03-17
 index.html
 edit_style.css
 menu_style.css
@@ -12,3 +12,10 @@ img/mortar-16.png
 img/mortar-48.png
 img/mortar-128.png
 img/navigation.jpg
+images/icons/menu.png
+icons/
+images/ui
+images/ui/dark
+images/ui/header
+images/ui/organic
+images/ui/overlay
