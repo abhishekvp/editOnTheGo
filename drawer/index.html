@@ -48,6 +48,7 @@
 	
 	<br>
 	<input id="installBtn" type="button" value="Install" onclick="installApp()" /><a style="float:right; padding-right:10px;"id="currDoc"></a>
+	<input type="button" value="PICK" onClick="pickFile()"/>
 	<!-- Body of our app starts here-->
 	
 
@@ -63,7 +64,6 @@
 			<dd>
 			<input  type="button" value="" onclick="window.location.reload()"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
 			<input type="button" value="OPEN" onClick="javascript:document.getElementById('files').click(); " />
-			<input type="button" value="PICK" onClick="pickFile()"/>
 			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
 			<input  type="button" value="" onclick="saveAsDoc(); return false;" style="background-image: url('icons/file-save-as-icon.png');  background-size:16px 16px;"/>
 			</dd>
