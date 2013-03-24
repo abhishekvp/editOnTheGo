@@ -18,7 +18,7 @@
             "filters": {
                 "type": "text/html"
             },
-            "href": "https://github.com/abhishekp91/richtextdoc_edit_OWA/drawer",
+            "href": "https://github.com/abhishekp91/richtextdoc_edit_OWA/drawer/index.html",
             "disposition": "window",
 			"returnValue": true
         }

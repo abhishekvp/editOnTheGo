@@ -3,9 +3,9 @@
   "description": "pick file",
   "launch_path": "/richtextdoc_edit_OWA/drawer_pick/",
  "icons": {
-  "16": "/richtextdoc_edit_OWA/img/mortar-16.png",
-  "48": "/richtextdoc_edit_OWA/img/mortar-48.png",
-  "128": "/richtextdoc_edit_OWA/img/mortar-128.png"
+  "16": "/richtextdoc_edit_OWA/drawer_pick/img/mortar-16.png",
+  "48": "/richtextdoc_edit_OWA/drawer_pick/img/mortar-48.png",
+  "128": "/richtextdoc_edit_OWA/drawer_pick/img/mortar-128.png"
 },
   "developer": {
     "name": "Abhishek Potnis, Amod Narvekar, Pratik Patil",
