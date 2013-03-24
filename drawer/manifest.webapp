@@ -1,7 +1,7 @@
 {
   "name": "editOnTheGo",
   "description": "An Open Web Application to edit Rich Text Documents",
-  "launch_path": "./index.html",
+  "launch_path": "/richtextdoc_edit_OWA/drawer/",
  "icons": {
   "16": "/richtextdoc_edit_OWA/img/mortar-16.png",
   "48": "/richtextdoc_edit_OWA/img/mortar-48.png",
@@ -18,7 +18,7 @@
             "filters": {
                 "type": "text/html"
             },
-            "href": "https://github.com/abhishekp91/richtextdoc_edit_OWA",
+            "href": "https://github.com/abhishekp91/richtextdoc_edit_OWA/drawer",
             "disposition": "window",
 			"returnValue": true
         }
