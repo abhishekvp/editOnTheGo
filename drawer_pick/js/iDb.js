@@ -119,17 +119,20 @@ function deleteDoc(id) {
  
 function displayDocList() {
   var listElement = document.getElementById("docList");
+  //alert(listElement);
   listElement.innerHTML = "";
   
 
   var trans = db.transaction(["doc"], "readwrite");
   var store = trans.objectStore("doc");
+  alert(store);
 
   var cursorRequest = store.openCursor();
   cursorRequest.onsuccess = function onSuccess_Cursor(e) {
     var result = e.target.result;
 
     if ( !! result == false) return;
+			//alert(result.value);
     renderDocNames(result.value);
 
     result.continue ();

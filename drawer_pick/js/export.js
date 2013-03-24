@@ -1,17 +1,19 @@
+
 var htmlFileName;
-window.onload = function() {
+function exportFile()
+{
  htmlFileName=fn;
+ //alert("filename="+htmlFileName);
  navigator.mozSetMessageHandler('activity', function(activity) {
    var name=activity.source.name;
-   if(name != "pick")
-   return;
-   else
+   if(name=="pick")
    {
    var blob=readBlob();
    if (!text) {
      a.postError("NoTextFile");
      return;
    }
+   alert('successfull');
    activity.postResult({ type: "text/html", blob: blob });
    }
  });
@@ -28,6 +30,6 @@ function readBlob()
 		blob=evt.target.result;
 	}
     };
-	reader.readAsBinaryString(blob);
+	//reader.readAsBinaryString(blob);
 	return blob;
 }  

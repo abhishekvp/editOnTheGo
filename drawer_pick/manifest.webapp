@@ -1,0 +1,18 @@
+{
+  "name": "app to pick file",
+  "description": "pick file",
+  "launch_path": "./index.html",
+ "icons": {
+  "16": "/img/mortar-16.png",
+  "48": "/img/mortar-48.png",
+  "128": "/img/mortar-128.png"
+},
+  "developer": {
+    "name": "Abhishek Potnis, Amod Narvekar, Pratik Patil",
+    "url": "./index.html"
+  },
+  
+  "default_locale": "en"
+
+}
+
