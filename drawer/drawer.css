@@ -11,7 +11,7 @@ section[role="region"] {
   z-index: 100;
   padding-left: 2rem;
   font: 2.2rem/1em "MozTT", Sans-serif;
-
+  overflow:auto;
 }
 
 section[role="region"]:target {
@@ -60,7 +60,7 @@ section[data-type="sidebar"] {
   height: 100%;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow: auto;
   font-family: "MozTT", Sans-serif;
 }
 
@@ -98,6 +98,7 @@ section[data-type="sidebar"] > header h1 {
 section[data-type="sidebar"] > header h1 em {
   font: bold 1.5rem/1em "MozTT", Sans-serif;
 }
+
 
 section[data-type="sidebar"] > nav > ul { 
   width: 100%;
