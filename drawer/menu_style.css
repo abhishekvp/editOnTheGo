@@ -22,7 +22,7 @@
 	letter-spacing:0.6px;
 	white-space:nowrap;
 	line-height:39px;
-	
+	cursor:default;
 	/* CSS3 Transition: */
 	-webkit-transition: 0.25s;
 }
