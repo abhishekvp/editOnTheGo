@@ -15,7 +15,7 @@
  * 		      Field (text) : Document Contents [Generally in HTML]
  *
  */
-var db, fn, tmp;
+var db, fn, tmp, uTime;
 const DB_NAME = "documents";
 
 
@@ -174,6 +174,7 @@ function autoSave() {
   if(fn!=null){
   var docName = fn;
   var docContent = document.getElementById('contentE').innerHTML;
+  uTime=(new Date).getTime();
   //alert("This is going to be saved:\n"+docContent);
   saveDocument(docName, docContent, tmp);
   console.log("Auto saved");
@@ -181,3 +182,25 @@ function autoSave() {
   else
   console.log("No file selected for auto saving");
 };
+
+function newDoc() {
+if(fn!=null) {
+	if(uTime) {
+		var pressed = confirm("Document "+fn+" was Auto-saved "+((new Date).getTime()-uTime)+"ms ago. Do you wish to save the document now?");
+		if(pressed==true) {
+		saveDoc();
+		}
+		}
+	else {
+		var pressed = confirm("Do you wish to save the document now?");
+		if(pressed==true) {
+		saveDoc();
+		}
+	}
+	
+}
+window.location.reload();	
+}
+
+
+
