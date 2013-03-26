@@ -182,9 +182,8 @@ function autoSave() {
   else
   console.log("No file selected for auto saving");
 };
-
-function newDoc() {
-if(fn!=null) {
+function checkCurrentDoc() {
+	if(fn!=null) {
 	if(uTime) {
 		var pressed = confirm("Document "+fn+" was Auto-saved "+((new Date).getTime()-uTime)+"ms ago. Do you wish to save the document now?");
 		if(pressed==true) {
@@ -192,19 +191,23 @@ if(fn!=null) {
 		}
 		}
 	else {
-		var pressed = confirm("Do you wish to save the document now?");
+		var pressed = confirm("Do you wish to save the current document?");
 		if(pressed==true) {
 		saveDoc();
 		}
 	}
 	
-}
-else {
+	}
+	else {
 		var pressed = confirm("The Document has not been saved yet ! Do you wish to save the document now?");
 		if(pressed==true) {
 		saveAsDoc();
 		}
+	}
+
 }
+function newDoc() {
+checkCurrentDoc();
 window.location.reload();	
 }
 
