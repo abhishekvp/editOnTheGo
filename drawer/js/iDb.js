@@ -199,6 +199,12 @@ if(fn!=null) {
 	}
 	
 }
+else {
+		var pressed = confirm("The Document has not been saved yet ! Do you wish to save the document now?");
+		if(pressed==true) {
+		saveAsDoc();
+		}
+}
 window.location.reload();	
 }
 
