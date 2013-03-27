@@ -185,7 +185,7 @@ function autoSave() {
 function checkCurrentDoc() {
 	if(fn!=null) {
 	if(uTime) {
-		var pressed = confirm("Document "+fn+" was Auto-saved "+((new Date).getTime()-uTime)+"ms ago. Do you wish to save the document now?");
+		var pressed = confirm("Document "+fn+" was Auto-saved "+(((new Date).getTime()-uTime)/1000)+"s ago. Do you wish to save the document now?");
 		if(pressed==true) {
 		saveDoc();
 		}
