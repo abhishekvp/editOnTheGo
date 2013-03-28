@@ -1,5 +1,5 @@
-
 function exportFile() {
+	alert("exportFile entered");
    navigator.mozSetMessageHandler('activity', function(activity) {
 
    var name=activity.source.name;
@@ -16,6 +16,7 @@ function exportFile() {
 
 function readBlob()
 {
+	alert("readBlob entered");
 	var blob;
 	var file = fn;
 	return new Blob([text1], { type: 'text/html' });
