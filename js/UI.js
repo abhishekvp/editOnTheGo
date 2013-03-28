@@ -13,14 +13,17 @@ function renderDocNames(row) {
   var li = document.createElement("li");
   var a = document.createElement("a");
   var aDel = document.createElement("a");
+  a.setAttribute('href',"#");
   a.addEventListener("click", function () {
-    fn= row.filename;
-	tmp= row.timeStamp;
-    document.getElementsByTagName('section')[0].innerHTML = row.text;
+  	 checkCurrentDoc();
+   	 fn= row.filename;
+   	 tmp= row.timeStamp;
+	//alert("This is going to be displayed:\n"+row.text);
+   	document.getElementById('contentE').innerHTML = row.text;
 	document.getElementById('saveButton').disabled = false;
 	currentDoc();
   }, false);
-
+  
   aDel.addEventListener("click", function () {
     deleteDoc(row.timeStamp);
   }, false);

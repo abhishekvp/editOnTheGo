@@ -15,7 +15,7 @@
  * 		      Field (text) : Document Contents [Generally in HTML]
  *
  */
-var db, fn, tmp;
+var db, fn, tmp, uTime;
 const DB_NAME = "documents";
 
 
@@ -116,9 +116,11 @@ function deleteDoc(id) {
 /**
  *Displays the list of document present in the database.
  */
+ 
 function displayDocList() {
   var listElement = document.getElementById("docList");
   listElement.innerHTML = "";
+  
 
   var trans = db.transaction(["doc"], "readwrite");
   var store = trans.objectStore("doc");
@@ -126,8 +128,10 @@ function displayDocList() {
   var cursorRequest = store.openCursor();
   cursorRequest.onsuccess = function onSuccess_Cursor(e) {
     var result = e.target.result;
+
     if ( !! result == false) return;
     renderDocNames(result.value);
+
     result.continue ();
   };
 
@@ -136,16 +140,22 @@ function displayDocList() {
   }
 };
 
+
 /**
  *Captures the user input values of Document Name and Document Contents from Web page. 
  *Calls |saveDocument()| method.
  */
 function saveAsDoc() {
   var docName = prompt("Please enter document name","");
-  var docContent = document.getElementsByTagName('section')[0].innerHTML;
-  fn = docName;
-  saveDocument(docName, docContent, " ");
-  document.getElementById('docName').value = "";  
+  var tmpDocName = docName.replace(/^\s+|\s+$/, '');
+  if(tmpDocName.length!=0) {
+    var docContent = document.getElementById('contentE').innerHTML;
+    //alert("This is going to be saved:\n"+docContent);
+    fn = docName;
+    saveDocument(docName, docContent, " ");
+    alert("Document "+docName+" saved successfully !");
+    document.getElementById('docName').value = "";
+  }
 };
 
 /**
@@ -154,17 +164,52 @@ function saveAsDoc() {
  */
 function saveDoc() {
   var docName = fn;
-  var docContent = document.getElementsByTagName('section')[0].innerHTML;
+  //alert("This is going to be saved:\n"+docContent);
+  var docContent = document.getElementById('contentE').innerHTML;
   saveDocument(docName, docContent, tmp);
+  
 };
 
 function autoSave() {
   if(fn!=null){
   var docName = fn;
-  var docContent = document.getElementsByTagName('section')[0].innerHTML;
+  var docContent = document.getElementById('contentE').innerHTML;
+  uTime=(new Date).getTime();
+  //alert("This is going to be saved:\n"+docContent);
   saveDocument(docName, docContent, tmp);
   console.log("Auto saved");
   }
   else
   console.log("No file selected for auto saving");
 };
+function checkCurrentDoc() {
+	if(fn!=null) {
+	if(uTime) {
+		var pressed = confirm("Document "+fn+" was Auto-saved "+(((new Date).getTime()-uTime)/1000)+"s ago. Do you wish to save the document now?");
+		if(pressed==true) {
+		saveDoc();
+		}
+		}
+	else {
+		var pressed = confirm("Do you wish to save the current document?");
+		if(pressed==true) {
+		saveDoc();
+		}
+	}
+	
+	}
+	else {
+		var pressed = confirm("The Document has not been saved yet ! Do you wish to save the document now?");
+		if(pressed==true) {
+		saveAsDoc();
+		}
+	}
+
+}
+function newDoc() {
+checkCurrentDoc();
+window.location.reload();	
+}
+
+
+

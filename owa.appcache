@@ -1,14 +1,18 @@
 CACHE MANIFEST
-# v1 2013-02-15
+# v1 2013-03-27
 index.html
 edit_style.css
 menu_style.css
+drawer.css
+headers.css
+style.css
 manifest.webapp
-js/fileopen.js
-js/iDb.js
-js/mozapp.js
-js/UI.js
-img/mortar-16.png
-img/mortar-48.png
-img/mortar-128.png
-img/navigation.jpg
+js/
+img/
+images/icons/menu.png
+icons/
+images/ui
+images/ui/dark
+images/ui/header
+images/ui/organic
+images/ui/overlay

@@ -1,62 +1,63 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" manifest="owa.appcache">
+<html>
 <head>
-  <meta charset="UTF-8" />
-    <link rel="app-manifest" href="http://abhishekp91.github.com/richtextdoc_edit_OWA/manifest.webapp"/>
-	<link rel="stylesheet" type="text/css" href="menu_style.css" />
-	<link rel="stylesheet" type="text/css" href="edit_style.css">
-  <title> OWA - contentEditable </title>
+  <meta charset="utf-8">
+
+  <title>EditOnTheGo</title>
+  <meta name="description" content="An OWA to edit rich text documents">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="headers.css">
+  <link rel="stylesheet" href="drawer.css">
+
+
+
+  <!--My Code Starts here -->
+  <link rel="app-manifest" href="http://abhishekp91.github.com/richtextdoc_edit_OWA/drawer/manifest.webapp"/>
+   
+  <link rel="stylesheet" type="text/css" href="menu_style.css" />
+  <link rel="stylesheet" type="text/css" href="edit_style.css">
+	
   <script type="text/javascript" src="js/fileopen.js"></script>
   <script type="text/javascript" src="js/mozapp.js"></script>
   <script type="text/javascript" src="js/iDb.js"></script>
   <script type="text/javascript" src="js/UI.js"></script>
-  <script type="text/javascript">//<![CDATA[
-    var
-      gActiveEditor = null, // active editing host
-      gCommandDump  = null; // command dump field
-    function ExecCommand(toolbarElement) {
-      var argVal, argStr,
-          type    = toolbarElement.getAttribute("type"),
-          command = toolbarElement.getAttribute("data-command");
-      switch (type) {    // get the execCommand argument according to the button type
-        case "button":   // toolbar button: no argument
-          argVal = argStr = false;
-          break;
-        case "checkbox": // styleWithCSS: boolean argument
-          argVal = argStr = toolbarElement.checked;
-          break;
-        default:         // <select> menu: string argument
-          if (!toolbarElement.selectedIndex) return;
-          argVal = toolbarElement.value;
-          argStr = "'" + argVal.replace("<", "&lt;").replace(">", "&gt;") + "'";
-          toolbarElement.selectedIndex = 0; // reset drop-down list
-      }
-      document.execCommand(command, false, argVal); // send requested action
-      if (gActiveEditor) gActiveEditor.focus();     // re-focus the editable element
-      gCommandDump.innerHTML = "document.execCommand('" + command + "', false, " + argStr + ");";
-    }
-    window.addEventListener("DOMContentLoaded", function() {
-      var i,
-        buttons = document.querySelectorAll("*[data-command]"),
-        editors = document.querySelectorAll("*[contenteditable]");
-      for (i = 0; i < buttons.length; i++) {
-        buttons[i].onclick  = function() { ExecCommand(this); };
-        buttons[i].onchange = function() { ExecCommand(this); };
-      }
-      for (i = 0; i < editors.length; i++)
-        editors[i].onfocus = function() { gActiveEditor = this; };
-      gCommandDump = document.querySelector("#execCommand");
-      ExecCommand(document.querySelector("*[data-command=styleWithCSS]"));
-    }, false);
-  //]]></script>
+  <script type="text/javascript" src="js/editor.js"></script>
+  <script type="text/javascript" src="js/export.js"></script>
+  <script type="text/javascript" src="js/pickDemo.js"></script>
+  <!--My Code Ends here -->
 </head>
-<body onload="init();">
-<a style="float:right; color:black;" id="currDoc">
-</a>
+
+<body role="application" onload="init();">
+
+  <section data-type="sidebar">
+    <header>
+ 
+      <h1>Saved Documents</h1>
+    </header>
+    <nav>
+      <ul id="docList"></ul>
+    </nav>
+  </section>
+
+  <section id="drawer" role="region">
+    <header>
+      <a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+      <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+      <h1>EditOnTheGo</h1>
+    </header>
+    <div role="main">
+	
+	<br>
+	<input type="button" value="EXPORT" onClick="exportFile()"/>
+	<input type="button" value="PICK" onClick="pickFile()"/>
+	<input id="installBtn" type="button" value="Install" onclick="installApp()" /><a style="float:right; padding-right:10px;"id="currDoc"></a>
+	
+	<!-- Body of our app starts here-->
+	
+
 
 
 <input type="file" id="files" name="file"  style="visibility:hidden;"  onChange="readFile();"/>
-	        
 
 <div class="navigationMenu" >
 <form id="toolbar">
@@ -65,7 +66,7 @@
 	    <a class="doc" href="#">
             <span>
 			<dd>
-			<input  type="button" value="" onclick="window.location.reload()"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
+			<input  type="button" value="" onclick="newDoc();"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
 			<input type="button" value="OPEN" onClick="javascript:document.getElementById('files').click();"  />
 			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
 			<input  type="button" value="" onclick="saveAsDoc(); return false;" style="background-image: url('icons/file-save-as-icon.png');  background-size:16px 16px;"/>
@@ -178,8 +179,8 @@
 		</form>
 </div>  
 
-	
-  <section contenteditable="true" id='content'>
+
+  <section contenteditable="true" id='contentE'>
     <h2> Go ahead, edit away! </h2>
     <p> Here's a typical paragraph element </p>
     <ol>
@@ -193,6 +194,12 @@
    
   </footer>
   
-    <ul id="docList"></ul>
+
+	
+   <!--Body of our app ends here -->
+	
+	</div>
+  </section>
+
 </body>
 </html>

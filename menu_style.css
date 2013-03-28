@@ -4,7 +4,7 @@
 	width:190px;
 	position: fixed;
     z-index: 100; 
-    bottom: 10px; 
+    bottom: 15px; 
     left: 40%;
 }
 
@@ -22,14 +22,13 @@
 	letter-spacing:0.6px;
 	white-space:nowrap;
 	line-height:39px;
-	
+	cursor:default;
 	/* CSS3 Transition: */
 	-webkit-transition: 0.25s;
 }
 
 .navigationMenu a{
 	background:url('img/navigation.jpg') no-repeat;
-
 	height:39px;
 	width:38px;
 	display:block;

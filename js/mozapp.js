@@ -1,18 +1,24 @@
-function appInstall(result) {
-    if (!result) {
-        var manLink = document.querySelector('link[rel="app-manifest"]'),
-            manifestURL = manLink.getAttribute('href');
-        var requestChk = navigator.mozApps.install(manifestURL);
-        requestChk.onsuccess = function () {
-            console.log("Application installed successfully !");
-        }
-        requestChk.onerror = function () {
-            alert("Error while trying to install :" + this.error.name);
-        }
+function renderInstallButton(result) {
+    if (!result) { 
+		console.log("App Not Installed");    
     } else {
-        console.log("App Already Installed");
+		document.getElementById("installBtn").style.visibility="hidden"; 
+		console.log("App Already Installed");	      
     }
 };
+
+function installApp() {
+  var manLink = document.querySelector('link[rel="app-manifest"]'),
+            manifestURL = manLink.getAttribute('href');
+  var requestChk = navigator.mozApps.install(manifestURL);
+  requestChk.onsuccess = function () {
+    document.getElementById("installBtn").style.visibility="hidden";
+    console.log("Application installed successfully !");	
+  }
+  requestChk.onerror = function () {
+    alert("Error while trying to install :" + this.error.name);
+  }
+}
 
 function chkInstall() {
     try1();
@@ -23,7 +29,7 @@ function chkInstall() {
                 console.log("Got null from getSelf() ! Now trying getInstalled()");
                 try2();
             } else {
-                appInstall(req1.result);
+                renderInstallButton(req1.result);
             }
         };
         req1.onerror = function () {
@@ -36,14 +42,15 @@ function chkInstall() {
         req2.onsuccess = function () {
             var result = null;
             var myorigin = window.location.protocol + "//" + window.location.host;
+			
             if (req2.result !== null) {
-                req2.result.forEach(function (app) {              
+                req2.result.forEach(function (app) {     
                     if (app.origin == myorigin) {
                         result = app;
                     }
                 });
             }
-            appInstall(result);
+            renderInstallButton(result);
         }
         req2.onerror = function() {
 		alert(this.error.name);
