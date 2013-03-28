@@ -15,7 +15,7 @@ function renderDocNames(row) {
   var aDel = document.createElement("a");
   a.setAttribute('href',"#");
   a.addEventListener("click", function () {
-  	 checkCurrentDoc();
+  	 //checkCurrentDoc();
    	 fn= row.filename;
    	 tmp= row.timeStamp;
 	//alert("This is going to be displayed:\n"+row.text);
