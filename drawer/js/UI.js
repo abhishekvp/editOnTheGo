@@ -8,6 +8,7 @@
  *  @param  row
  *	        It is a tuple containing the atrributes Document Name, Time Stamp and Document Contents.
  */
+var text1;
 function renderDocNames(row) {
   var listElement = document.getElementById("docList");
   var li = document.createElement("li");
@@ -18,6 +19,7 @@ function renderDocNames(row) {
   	 //checkCurrentDoc();
    	 fn= row.filename;
    	 tmp= row.timeStamp;
+   	 text1=row.text;
 	//alert("This is going to be displayed:\n"+row.text);
    	document.getElementById('contentE').innerHTML = row.text;
 	document.getElementById('saveButton').disabled = false;
