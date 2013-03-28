@@ -5,24 +5,17 @@ width:100%;
 height:80px;
 max-height:275px;
 position:fixed;
-left:0;
+left:100px;
 bottom:0;
 right:0;
-background:#fff;
+background:#ddd;
 font-size:80%;
 z-index:100;
-}
-
-/*Toggling Menu*/
-#sub_menu
-{
-width:100%;
 display:none;
-background:#ddd;
-position:relative;
-left:100px;
 transition: background 0.2s ease;
 }
+
+
 
 /*Toggle Image*/
 #tog

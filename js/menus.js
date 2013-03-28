@@ -2,7 +2,7 @@ var count= 0;
 var temp= 0;
 
 function toggle() {
-	var ele = document.getElementById("sub_menu");
+	var ele = document.getElementById("menu");
 	var imgEle= document.getElementById("tog");
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
