@@ -17,5 +17,5 @@ function readBlob()
 {
 	var blob;
 	var file = fn;
-	return new Blob([text1], { type: 'text/html' });
+	return new Blob([eText], { type: 'text/html' });
 }  

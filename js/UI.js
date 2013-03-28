@@ -2,7 +2,7 @@
 * UI.js: JavaScript relating to UI goes here.
 *
 */
-
+var eText;
 /**
  *Renders the Document list on the Web page.
  *  @param  row
@@ -15,9 +15,10 @@ function renderDocNames(row) {
   var aDel = document.createElement("a");
   a.setAttribute('href',"#");
   a.addEventListener("click", function () {
-  	 checkCurrentDoc();
+  	 //checkCurrentDoc();
    	 fn= row.filename;
    	 tmp= row.timeStamp;
+	 eText=row.text;
 	//alert("This is going to be displayed:\n"+row.text);
    	document.getElementById('contentE').innerHTML = row.text;
 	document.getElementById('saveButton').disabled = false;
