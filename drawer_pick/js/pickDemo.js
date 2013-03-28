@@ -1,5 +1,6 @@
 function pickFile()
 {
+alert("pickFile called");
 var pick = new MozActivity({
    name: "pick",
    data: {
@@ -8,16 +9,17 @@ var pick = new MozActivity({
 });
 
 pick.onsuccess = function () {
-    //var img = document.createElement('a');
-	alert("entered");
 	var sec = document.getElementById("contentE");
-    var textDoc = window.URL.createObjectURL(this.result.blob);
-	alert("textDoc="+textDoc);
-    sec.appendChild(textDoc);
+	 var f = new FileReader(); 
+	 f.readAsText(this.result.blob); 
+	 f.onload = function(evt) {
+	 alert("File received successfully.");
+	 sec.innerHTML=evt.target.result;
+	 }
 };
  
 pick.onerror = function () {
     // If an error occurred or the user canceled the activity
-    alert("error1234");
+    alert("pick failed");
 };
 }
