@@ -32,3 +32,11 @@
       
       ExecCommand(document.querySelector("*[data-command=styleWithCSS]"));
     }, false);
+	
+	function printDoc() {
+	  var oPrntWin = window.open("","_blank","width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
+	  oPrntWin.document.open();
+	  var docTextPrint = document.getElementById("contentE");
+	  oPrntWin.document.write("<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" + docTextPrint.innerHTML + "<\/body><\/html>");
+   	  oPrntWin.document.close();
+	}
