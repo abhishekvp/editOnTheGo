@@ -1,14 +1,13 @@
 
-  function readBlob() {
+function readFile() {
     var files = document.getElementById('files').files;
+    if(!files.length)
+	return;    
     var reader = new FileReader();
-	//alert(evt.target.readyState);
-    reader.onloadend = function(evt) {
-	
+    reader.onloadend = function(evt) {  
       if (evt.target.readyState == FileReader.DONE) {
-        document.getElementById('content').innerHTML = evt.target.result;
+        document.getElementById('contentE').innerHTML = evt.target.result;
       }	  
     };
-    var blob = files[0].slice(0, files[0].size);
-	reader.readAsBinaryString(blob);
+    reader.readAsBinaryString(files[0]);
   }

@@ -1,0 +1,136 @@
+.navigationMenu  {
+	height:39px;
+	padding:5px;
+	width:190px;
+	position: fixed;
+    z-index: 100; 
+    bottom: 15px; 
+    left: 40%;
+}
+
+.navigationMenu span{
+
+	width:0;
+	bottom:39px;/* modifies upper hover*/
+	padding:0;
+	position:absolute;
+	overflow:hidden;
+
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:0.6px;
+	white-space:nowrap;
+	line-height:39px;
+	cursor:default;
+	/* CSS3 Transition: */
+	-webkit-transition: 0.25s;
+}
+
+.navigationMenu a{
+	background:url('img/navigation.jpg') no-repeat;
+	height:39px;
+	width:38px;
+	display:block;
+	position:relative;
+	
+}
+
+/* General hover styles */
+
+.navigationMenu a:hover span{ width:auto; padding:10px 20px 10px 20px; overflow:visible; }
+.navigationMenu a:hover{
+	text-decoration:none;
+	
+	/* CSS outer glow with the box-shadow property */
+	-moz-box-shadow:0 0 5px #9ddff5;
+	-webkit-box-shadow:0 0 5px #9ddff5;
+	box-shadow:0 0 5px #9ddff5;
+}
+
+/* Document Section */
+
+.navigationMenu .doc 
+{	background-position:0 0; 
+   clear:both;
+   float:left;
+   position:relative;
+}
+.navigationMenu .doc:hover 
+{
+	background-position:0 -39px;
+	margin:auto;
+	}
+.navigationMenu .doc span{
+float:left;
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+	left:-320%;
+}
+
+/* Editing Section */
+
+.navigationMenu .edit
+ { background-position:-38px 0;
+   float:left;
+   position:relative;
+ }
+ 
+.navigationMenu .edit:hover { background-position:-38px -39px;}
+.navigationMenu .edit span{
+float:left;
+	background-color:#1e8bb4;
+	color:#223a44;
+	text-shadow:1px 1px 0 #44a8d0;
+	left:-370%;
+}
+
+/* Inline Formatting Section */
+
+.navigationMenu .format_inline
+ { background-position:-76px 0;
+   float:left;
+   position:relative;
+ }
+.navigationMenu .format_inline:hover { background-position:-76px -39px;}
+.navigationMenu .format_inline span{
+	background-color:#c86c1f;
+	color:#5a3517;
+	text-shadow:1px 1px 0 #d28344;
+	left:-570%;
+}
+
+/* Block Formatting Section */
+
+.navigationMenu .format_block
+ { background-position:-114px 0;
+   float:left;
+   position:relative;
+ }
+.navigationMenu .format_block:hover{ background-position:-114px -39px;}
+.navigationMenu .format_block span{
+	background-color:#d0a525;
+	color:#604e18;
+	text-shadow:1px 1px 0 #d8b54b;
+	left:-590%;
+}
+
+/* Reserved Section */
+
+.navigationMenu .rsvd 
+{ background-position:-152px 0;
+  float:left;
+   position:relative;
+}
+.navigationMenu .rsvd:hover { background-position:-152px -39px;}
+.navigationMenu .rsvd span{
+	background-color:#af1e83;
+	color:#460f35;
+	text-shadow:1px 1px 0 #d244a6;
+	left:-620%;
+}
+
+
+
+

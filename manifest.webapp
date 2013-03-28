@@ -1,5 +1,5 @@
 {
-  "name": "editOnTheGo<editOTG>",
+  "name": "editOnTheGo",
   "description": "An Open Web Application to edit Rich Text Documents",
   "launch_path": "/richtextdoc_edit_OWA/",
  "icons": {
@@ -11,5 +11,20 @@
     "name": "Abhishek Potnis, Amod Narvekar, Pratik Patil",
     "url": "https://github.com/abhishekp91/richtextdoc_edit_OWA"
   },
+  
+
+    "activities": {
+        "pick": {
+            "filters": {
+                "type": "text/html"
+            },
+            "href": "/richtextdoc_edit_OWA/index.html",
+            "disposition": "window",
+			"returnValue": true
+        }
+    },
+
   "default_locale": "en"
+
 }
+
