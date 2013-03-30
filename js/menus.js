@@ -39,3 +39,25 @@ function down()
    going2.style.display="none";
    coming2.style.display="block";
 }
+
+function expand_menu(m)
+{
+ var menu=document.getElementById("sub_menu");
+ var menu_next=document.getElementById(""+m);
+   menu.style.display="none";
+   menu_next.style.display="block";
+}
+
+function hide_all()
+{
+ var menu=document.getElementById("sub_menu");
+ var menu_hide0=document.getElementById("m0");
+ var menu_hide1=document.getElementById("m1");
+ var menu_hide2=document.getElementById("m2");
+ var menu_hide3=document.getElementById("m3");
+ menu_hide0.style.display="none";
+ menu_hide1.style.display="none";
+ menu_hide2.style.display="none";
+ menu_hide3.style.display="none";
+ menu.style.display="block";
+}

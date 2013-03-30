@@ -1,0 +1,54 @@
+#menu
+{
+width:100%;
+bottom:0;
+left:0;
+height:100px;
+}
+
+#open_menu
+{
+  position:fixed;
+  margin:auto;
+ left:0;
+ right:auto;
+ bottom:55px;
+}
+
+/*Toggle Menus*/
+
+#m0
+{
+ width:auto;
+ height:auto;
+ display:none;
+ text-align:center;
+margin: 2% 5% auto 53px;
+}
+
+#m1
+{
+ width:auto;
+ height:auto;
+ display:none;
+ text-align:center;
+margin: 2% 5% auto 53px;
+}
+
+#m2
+{
+ width:auto;
+ height:auto;
+ display:none;
+ text-align:center;
+ margin: 2% 5% auto 53px;
+}
+
+#m3
+{
+ width:auto;
+ height:auto;
+ display:none;
+ text-align:center;
+ margin: 2% 5% auto 53px;
+}

@@ -5,6 +5,7 @@
 
   <title>EditOnTheGo</title>
   <meta name="description" content="An OWA to edit rich text documents">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 ,user-scalable=0" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="headers.css">
   <link rel="stylesheet" href="drawer.css">
@@ -15,8 +16,9 @@
   <link rel="app-manifest" href="http://abhishekp91.github.com/richtextdoc_edit_OWA/manifest.webapp"/>
    
   <link rel="stylesheet" type="text/css" href="edit_style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="new_menu_big.css">
   <link rel="stylesheet" type="text/css" media="only screen and (max-width: 500px),only screen and (max-device-width: 500px)" href="new_menu_small.css">
-  <link rel="stylesheet" type="text/css" media="only screen and (min-width: 501px),only screen and(min-device-width: 501px)" href="new_menu_big.css">
+  <link rel="stylesheet" type="text/css" media="only screen and (max-width: 1024px) and (min-width: 501px),only screen and (max-device-width: 1024px) and (min-device-width: 501px)" href="new_menu_medium.css">
 	
   <script type="text/javascript" src="js/menus.js"></script>
   <script type="text/javascript" src="js/fileopen.js"></script>
@@ -65,15 +67,27 @@
 
 <img id="tog" src="menu_img/show.jpg" onClick="toggle()" /> 
 <div id="menu">
-		<img id="scroll_up" src="menu_img/up.jpg" onClick="up()" />  <!--To Sroll the menus-->
-		<img id="scroll_down" src="menu_img/down.jpg" onClick="down()"/> 
+
+  <img id="open_menu" src="images_all/icons/menu.jpg" onClick="hide_all()">
+<div id="sub_menu">
+    <a href="javascript:expand_menu('m0');">File</a>
+	<a href="javascript:expand_menu('m1');">Edit</a>
+	<a href="javascript:expand_menu('m2');">Format</a>
+	<a href="javascript:expand_menu('m3');">Paragraph</a>
+</div>	
+
+
+		<!--<img id="scroll_up" src="menu_img/up.jpg" onClick="up()" />  <!--To Sroll the menus-->
+		<!--<img id="scroll_down" src="menu_img/down.jpg" onClick="down()"/> -->
      <div id="m0"> 
 			<span>
 			
-			<input  type="button" value="" onclick="newDoc();"  style="background-image: url('icons/New File.png'); background-size:16px 16px;"/>
-			<input type="button" value="OPEN" onClick="javascript:document.getElementById('files').click();"  />
+			<input  id="new_file" type="button" value="" onclick="newDoc();"/>
+			|
+			<input id="open_file" type="button" value="" onClick="javascript:document.getElementById('files').click();"  />
+			|
 			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
-			<input  type="button" value="" onclick="saveAsDoc(); return false;" style="background-image: url('icons/file-save-as-icon.png');  background-size:16px 16px;"/>
+			<input  id="save_as_file" type="button" value="" onclick="saveAsDoc(); return false;"/>
 		
 			</span>
 	 </div>
@@ -87,8 +101,7 @@
 			<input type="button" value=" " data-command="copy" disabled="disabled" />
 			<input type="button" value=" " data-command="paste" disabled="disabled" />
 			|
-			<input type="checkbox" data-command="styleWithCSS" checked="checked" />
-			style with CSS
+			<input type="checkbox" data-command="styleWithCSS" checked="checked"  style="visibility:hidden;"/>
 			</span>
 	 </div>
 	 
