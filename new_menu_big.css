@@ -41,7 +41,7 @@ transition: background 0.2s ease;
  left:0;
  bottom:0;
  position:fixed;
- z-index:200;
+ z-index:110;
 }
 
 #scroll_up
