@@ -6,11 +6,11 @@ function toggle() {
 	var imgEle= document.getElementById("tog");
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
-			imgEle.src='menu_img/show.jpg';
+			imgEle.src='images_all/menu_img/show.jpg';
   	}
 	else {
 		ele.style.display = "block";
-		imgEle.src='menu_img/hide.jpg';
+		imgEle.src='images_all/menu_img/hide.jpg';
 	}
 } 
 
