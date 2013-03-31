@@ -19,6 +19,7 @@ transition: display 0.5s ease;
 
 #sub_menu
 {
+height:50px;
   display:block;
   text-align:center;
    margin: 2% 3% 2% 33px;
@@ -67,7 +68,7 @@ transition: display 0.5s ease;
 #m0
 {
  width:auto;
- height:auto;
+ height:50px;
  display:none;
  text-align:center;
 margin: 2% 5% auto 35px;
@@ -109,6 +110,12 @@ margin: 2% 5% auto 33px;
 	  margin: 2% auto;
     }
 	
+#sub_menu a
+{
+ font-size:90%;
+ margin-bottom:5px;
+}
+
 #new_file
 {
  background-image: url('images_all/icons/New File.png'); background-size:30px 30px ; background-repeat:no-repeat;
