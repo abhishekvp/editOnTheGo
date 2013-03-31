@@ -129,6 +129,22 @@ margin: 2% 5% auto 33px;
  background-image: url('images_all/icons/file-save-as-icon.png'); background-size:30px 30px ; background-repeat:no-repeat;
 }
 
+#menu #export_file
+{
+ height:30px;
+}
+
+#menu #pick_file
+{
+ height:30px;
+}
+
+#print_file
+{
+  background-image: url('images_all/icons/print.jpg'); background-size:30px 30px ; background-repeat:no-repeat;
+}
+
+
 	*[data-command="cut"]                 { background-image: url('images_all/icons/cut.png');  background-size:30px 30px; background-repeat:no-repeat; /*background-position: 0  -96px;*/ }
     *[data-command="copy"]                { background-image: url('images_all/icons/copy.jpg');  background-size:30px 30px; background-repeat:no-repeat; /*background-position: 0 -112px;*/ }
     *[data-command="paste"]               {  background-image: url('images_all/icons/paste.jpg');  background-size:30px 30px; background-repeat:no-repeat; /*background-position: 0 -128px;*/ }

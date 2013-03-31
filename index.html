@@ -53,10 +53,9 @@
     <div role="main">
 	
 	<br>
-	<input type="button" value="EXPORT" onClick="exportFile()"/>
-	<input type="button" value="PICK" onClick="pickFile()"/>
-	<input id="installBtn" type="button" value="Install" onclick="installApp()" /><a style="float:right; padding-right:10px;"id="currDoc"></a>
-	<input type="button" value="PRINT" onClick="printDoc()"/>
+		<a id="currDoc"></a>
+	<br>
+		<input id="installBtn" type="button" value="Install" onclick="installApp()" style="margin: auto auto auto 5px;"/>
 	<!-- Body of our app starts here-->
 	
 
@@ -88,6 +87,11 @@
 			|
 			<input id="saveButton" type="button" value="" onclick="saveDoc(); return false;" disabled="false" />
 			<input  id="save_as_file" type="button" value="" onclick="saveAsDoc(); return false;"/>
+			|
+			<input id="export_file" type="button" value="EXPORT" onClick="exportFile()"/>
+			<input id="pick_file" type="button" value="PICK" onClick="pickFile()"/>
+			|
+			<input id="print_file" type="button" value="" onClick="printDoc()"/>
 		
 			</span>
 	 </div>
