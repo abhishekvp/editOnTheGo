@@ -1,7 +1,7 @@
 
     *[contenteditable] {
       margin: 1em auto;
-	  min-height:2000px;
+	  min-height:100%;
 	   bottom:1px;
       padding: 10px;
       background: #fff;
