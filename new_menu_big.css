@@ -28,10 +28,10 @@ display:none;
 #open_menu
 {
   position:fixed;
- bottom:30px;
+ bottom:0;
  right:80%;
- width:45px;
- height:50px;
+ width:50px;
+ height:60px;
 }
 
 /*Toggle Image*/
