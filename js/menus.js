@@ -7,12 +7,12 @@ function toggle() {
 	if(ele.style.display == "block") {
 	        $("#menu").fadeOut("slow");
     		/*ele.style.display = "none";*/
-			imgEle.src='images_all/menu_img/show.jpg';
+			imgEle.src='images_all/menu_img/show.png';
   	}
 	else {
 	      $("#menu").fadeIn("slow");
 		/*ele.style.display = "block";*/
-		imgEle.src='images_all/menu_img/hide.jpg';
+		imgEle.src='images_all/menu_img/hide.png';
 	}
 } 
 /*
