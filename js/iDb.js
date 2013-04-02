@@ -23,6 +23,11 @@ const DB_NAME = "documents";
  *Checks browser compatibilty with indexedDB and calls |initIndexedDB()|
  */
 function init() {
+ if(!window.navigator.mozSetMessageHandler)
+ {
+   document.getElementById('export_file').disabled = true;
+   document.getElementById('pick_file').disabled = true;
+ }
   chkInstall();
   window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
   if (!window.indexedDB) {
