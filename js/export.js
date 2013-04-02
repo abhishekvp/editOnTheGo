@@ -7,7 +7,6 @@ function exportFile() {
    else
    {
    var blob=readBlob();
-   alert("File exported successfully.");
    activity.postResult({ type: "text/html", blob: blob });
    }
  });
@@ -15,7 +14,5 @@ function exportFile() {
 
 function readBlob()
 {
-	var blob;
-	var file = fn;
 	return new Blob([eText], { type: 'text/html' });
 }  
