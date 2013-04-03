@@ -37,7 +37,7 @@ function renderDocNames(row) {
 };
 function currentDoc() {
 if(fn==null)
-document.getElementById("currDoc").innerHTML = "Unsaved Doc";
+document.getElementById("currDoc").innerHTML = "Unsaved";
 else
-document.getElementById("currDoc").innerHTML = "Doc: "+fn;
+document.getElementById("currDoc").innerHTML = fn;
 };
