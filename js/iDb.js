@@ -29,6 +29,7 @@ function init() {
    document.getElementById('pick_file').disabled = true;
  }
   chkInstall();
+  chkPrintCompat();
   window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
   if (!window.indexedDB) {
     window.alert("Your browser doesn't support a stable version of IndexedDB. Saving and Loading Documents feature will not be available.");
@@ -214,6 +215,16 @@ function checkCurrentDoc() {
 function newDoc() {
 checkCurrentDoc();
 window.location.reload();	
+}
+/**
+ * Checks Print Compatibility on devices.
+ * Uses navigator.userAgent to detect Mobiles and Tablets, where print is not currently  
+ * possible
+ */
+function chkPrintCompat() {
+var uA = navigator.userAgent;
+if(uA.match(new RegExp("Android","i")) || uA.match(new RegExp("Mobile","i")))
+document.getElementById("print_file").style.visibility = "hidden";
 }
 
 
