@@ -1,15 +1,15 @@
 {
   "name": "editOnTheGo",
   "description": "An Open Web Application to edit Rich Text Documents",
-  "launch_path": "/richtextdoc_edit_OWA/",
+  "launch_path": "/editOnTheGo/",
  "icons": {
-  "16": "/richtextdoc_edit_OWA/img/mortar-16.png",
-  "48": "/richtextdoc_edit_OWA/img/mortar-48.png",
-  "128": "/richtextdoc_edit_OWA/img/mortar-128.png"
+  "16": "/editOnTheGo/img/mortar-16.png",
+  "48": "/editOnTheGo/img/mortar-48.png",
+  "128": "/editOnTheGo/img/mortar-128.png"
 },
   "developer": {
     "name": "Abhishek Potnis, Amod Narvekar, Pratik Patil",
-    "url": "https://github.com/abhishekp91/richtextdoc_edit_OWA"
+    "url": "https://github.com/abhishekvp/editOnTheGo"
   },
   
 
@@ -18,7 +18,7 @@
             "filters": {
                 "type": "text/html"
             },
-            "href": "/richtextdoc_edit_OWA/index.html",
+            "href": "/editOnTheGo/index.html",
             "disposition": "window",
 			"returnValue": true
         }
