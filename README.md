@@ -1,4 +1,4 @@
-richtextdoc_edit_OWA
+editOnTheGo
 ====================
 
 An Open Web Application to edit rich text documents
