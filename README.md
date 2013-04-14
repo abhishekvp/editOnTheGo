@@ -13,12 +13,15 @@ The user can
 * Save a new document.
 * Save a previously saved, but newly updated document.
 * Export and Pick features only function in the FirefoxOS
-  1/Export - Exports the document contents to the calling application in the FirefoxOS.
-  2/Pick - Lets you pick and add images stored in the Gallery of the FirefoxOS Mobile to the current document.
-*Print a document.
 
-This is a Mozilla Student Project (https://github.com/Yoric/Mozilla-Student-Projects/issues/1)
-being Mentored by Mr. David Rajchenbach-Teller (:Yoric)
+  Export - Exports the document contents to the calling application in the FirefoxOS.
+  
+  Pick - Lets you pick and add images stored in the Gallery of the FirefoxOS Mobile to the current document.
+   
+* Print a document.
+
+This is a Mozilla Student Project (https://github.com/Yoric/Mozilla-Student-Projects/issues/1) being Mentored 
+by Mr. David Rajchenbach-Teller (:Yoric)
 
 Coding Style : https://developer.mozilla.org/en-US/docs/Developer_Guide/Coding_Style
 
